@@ -1,0 +1,6 @@
+site/tools/repair_portraits_now.py:True
+site/assets/rika-standing-transparent-final.png:True
+site/assets/rika-peace-transparent-final.png:True
+site/index.html:True
+rika-standing-transparent-final.png:(997, 1193):RGBA
+rika-peace-transparent-final.png:(904, 1082):RGBA
