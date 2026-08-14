@@ -105,49 +105,6 @@
   </main>
   <footer><span>© 2026 RIKA RAN</span><span>BUILT WITH CURIOSITY, TESTED WITH PEOPLE.</span><a href="#top">BACK TO TOP ↑</a></footer>
   <script src="script.js"></script>
-  <script id="transparent-character-assets">
-    (() => {
-      const portraitAsset = './assets/cutouts/rika-portrait-transparent.png';
-      const standingAsset = './assets/cutouts/rika-standing-transparent.png';
-
-      const replaceImage = (image, source) => {
-        if (!image) return;
-        image.src = source;
-        image.removeAttribute('srcset');
-      };
-
-      const applyTransparentCharacters = () => {
-        replaceImage(
-          document.querySelector('#about .about-portrait img, #about .photo-frame img'),
-          portraitAsset
-        );
-
-        const hero = document.querySelector('.hero.newspaper, .hero');
-        if (!hero) return;
-
-        const midpoint = window.innerWidth / 2;
-        const characterCandidates = [...hero.querySelectorAll('img')].filter((image) => {
-          const box = image.getBoundingClientRect();
-          return !image.closest('.hero-portals, .portal, .linkedin-note') &&
-            box.width > 80 && box.height > 120;
-        });
-
-        const tallestOnSide = (leftSide) => characterCandidates
-          .filter((image) => (image.getBoundingClientRect().left < midpoint) === leftSide)
-          .sort((a, b) => b.getBoundingClientRect().height - a.getBoundingClientRect().height)[0];
-
-        replaceImage(tallestOnSide(true), standingAsset);
-        replaceImage(tallestOnSide(false), portraitAsset);
-      };
-
-      const start = () => requestAnimationFrame(applyTransparentCharacters);
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', start, { once: true });
-      } else {
-        start();
-      }
-    })();
-  </script>
   <!-- Stable local portrait asset bindings. Keep layout and motion untouched. -->
   <script id="rika-portrait-asset-fix">
     (() => {
