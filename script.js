@@ -69,15 +69,55 @@ if(motionOK&&deskLayout){
   }
 }
 
-// Short synthesized paper-click on the portal icons; no audio assets needed.
+// Drag the blossom layer behind the left portrait: it pivots at its base
+// while dragged and springs back with a damped wobble on release.
+const floraImg=document.querySelector('.left-portrait img.flora');
+const floraWrap=document.querySelector('.left-portrait');
+if(floraImg&&floraWrap){
+  let rot=0,vel=0,dragging=false,startX=0,baseRot=0,lastX=0,lastT=0,springing=null;
+  const apply=()=>{floraImg.style.transform=`rotate(${rot}deg)`};
+  const spring=()=>{
+    let last=performance.now();
+    const stepS=n=>{
+      const dt=Math.min(.04,(n-last)/1000);last=n;
+      vel+=(-34*rot-6.5*vel)*dt;
+      rot+=vel*dt;
+      rot=Math.max(-20,Math.min(20,rot));
+      apply();
+      if(Math.abs(rot)>.02||Math.abs(vel)>.02){springing=requestAnimationFrame(stepS)}
+      else{rot=0;vel=0;springing=null;apply()}
+    };
+    springing=requestAnimationFrame(stepS);
+  };
+  floraWrap.addEventListener('pointerdown',e=>{
+    dragging=true;startX=e.clientX;baseRot=rot;lastX=e.clientX;lastT=performance.now();
+    if(springing){cancelAnimationFrame(springing);springing=null}
+    e.preventDefault();
+  });
+  addEventListener('pointermove',e=>{
+    if(!dragging)return;
+    const raw=baseRot+(e.clientX-startX)*.07;
+    rot=Math.max(-14,Math.min(14,raw));
+    const now=performance.now(),dtm=(now-lastT)/1000;
+    if(dtm>0){vel=((e.clientX-lastX)*.07)/dtm*.4;lastX=e.clientX;lastT=now}
+    apply();
+  });
+  addEventListener('pointerup',()=>{if(dragging){dragging=false;vel=Math.max(-40,Math.min(40,vel));spring()}});
+}
+
+// Short synthesized mouse-click tick on the portal icons; no audio assets needed.
 let blipCtx=null;
 const clickBlip=()=>{
   try{
     blipCtx=blipCtx||new (window.AudioContext||window.webkitAudioContext)();
-    const t=blipCtx.currentTime,o=blipCtx.createOscillator(),g=blipCtx.createGain();
-    o.type='triangle';o.frequency.setValueAtTime(1800,t);o.frequency.exponentialRampToValueAtTime(520,t+.05);
-    g.gain.setValueAtTime(.15,t);g.gain.exponentialRampToValueAtTime(.0001,t+.09);
-    o.connect(g);g.connect(blipCtx.destination);o.start(t);o.stop(t+.1);
+    const t=blipCtx.currentTime,dur=.03;
+    const buf=blipCtx.createBuffer(1,Math.ceil(blipCtx.sampleRate*dur),blipCtx.sampleRate);
+    const d=buf.getChannelData(0);
+    for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3);
+    const src=blipCtx.createBufferSource();src.buffer=buf;
+    const f=blipCtx.createBiquadFilter();f.type='bandpass';f.frequency.value=3400;f.Q.value=1;
+    const g=blipCtx.createGain();g.gain.value=.55;
+    src.connect(f);f.connect(g);g.connect(blipCtx.destination);src.start(t);
   }catch(err){}
 };
 document.querySelectorAll('.portal').forEach(el=>el.addEventListener('pointerdown',clickBlip));
