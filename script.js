@@ -1,16 +1,21 @@
+// Site behaviour: custom cursor, scroll reveals, the phone feed, the portrait
+// eye-follow and blossom drag, and the hero's four floating portal icons.
+//
+// The hero portals are label-free icons that drift inside a safe zone clear of
+// the title and portraits, pause under the cursor, sound a click and lead to
+// the trails section, and converge toward the frame's bottom as you scroll on.
+
 const root=document.documentElement;
 const cursor=document.querySelector('.pixel-cursor');
 const fine=matchMedia('(pointer:fine)').matches;
-if(fine){root.classList.add('custom-cursor');let x=-50,y=-50,tx=-50,ty=-50;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});const tick=()=>{x+=(tx-x)*.34;y+=(ty-y)*.34;cursor.style.transform=`translate3d(${x}px,${y}px,0)`;requestAnimationFrame(tick)};tick();document.querySelectorAll('a,button,.interactive,.portal,.file-card,.tool-grid span').forEach(el=>{el.addEventListener('pointerenter',()=>cursor.classList.add('active'));el.addEventListener('pointerleave',()=>cursor.classList.remove('active'))})}
+if(fine){root.classList.add('custom-cursor');let x=-50,y=-50,tx=-50,ty=-50;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});const tick=()=>{x+=(tx-x)*.34;y+=(ty-y)*.34;cursor.style.transform=`translate3d(${x}px,${y}px,0)`;requestAnimationFrame(tick)};tick();document.querySelectorAll('a,button,.interactive,.file-card,.tool-grid span').forEach(el=>{el.addEventListener('pointerenter',()=>cursor.classList.add('active'));el.addEventListener('pointerleave',()=>cursor.classList.remove('active'))})}
 const io=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('visible',e.isIntersecting)),{threshold:.14});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// On wheel over the phone, keep the gesture inside the phone until its feed reaches an edge.
 const phone=document.querySelector('.phone-scroll');if(phone){phone.addEventListener('wheel',e=>{const max=phone.scrollHeight-phone.clientHeight;const next=phone.scrollTop+e.deltaY;if((e.deltaY>0&&phone.scrollTop<max)||(e.deltaY<0&&phone.scrollTop>0)){e.preventDefault();phone.scrollTop=next}},{passive:false})}
 
 const motionOK=!matchMedia('(prefers-reduced-motion:reduce)').matches;
 const deskLayout=matchMedia('(min-width:901px)').matches;
 
-// Pupils cut onto the right portrait follow the cursor; anchored to fixed
-// fractions of the artwork, so they survive any resize of the cutout.
+// Pupils cut onto the right portrait follow the cursor.
 const rPortrait=document.querySelector('.right-portrait');
 const rImg=rPortrait&&rPortrait.querySelector('img');
 if(rImg&&fine&&motionOK&&deskLayout){
@@ -21,7 +26,6 @@ if(rImg&&fine&&motionOK&&deskLayout){
   const eyeStep=()=>{
     const b=rPortrait.getBoundingClientRect();
     if(rImg.naturalWidth&&b.width>10){
-      // object-fit:contain anchored right/bottom on desktop
       const ar=rImg.naturalWidth/rImg.naturalHeight;
       const w=Math.min(b.width,b.height*ar),h=w/ar,left=b.right-w,top=b.bottom-h;
       const size=w*.075;
@@ -38,39 +42,23 @@ if(rImg&&fine&&motionOK&&deskLayout){
   if(rImg.complete)eyeStep();else rImg.addEventListener('load',eyeStep,{once:true});
 }
 
-// Scrolling away from the hero draws the four portals down toward the frame's
-// bottom centre so they hand off into the next section.
-if(motionOK&&deskLayout){
-  const hero=document.querySelector('.hero');
-  const portals=[...document.querySelectorAll('.hero .portal')];
-  if(hero&&portals.length){
-    let basePts=[],queued=false;
-    const measure=()=>{
-      portals.forEach(el=>{el.style.transform='';el.style.opacity=''});
-      const hb=hero.getBoundingClientRect();
-      basePts=portals.map(el=>{const r=el.getBoundingClientRect();return{x:r.left+r.width/2-hb.left,y:r.top+r.height/2-hb.top}});
-    };
-    const apply=()=>{
-      queued=false;
-      const hb=hero.getBoundingClientRect();
-      const p=Math.min(1,Math.max(0,-hb.top/(hb.height*.75)));
-      const e=p*p*(3-2*p);
-      portals.forEach((el,i)=>{
-        const b=basePts[i];
-        const tx=(hb.width/2-b.x)*e*.55,ty=(hb.height-b.y)*e*.4;
-        el.style.transform=e>.001?`translate(${tx}px,${ty}px) scale(${1-.35*e})`:'';
-        el.style.opacity=e>.001?String(1-.5*e):'';
-      });
-    };
-    const onScroll=()=>{if(!queued){queued=true;requestAnimationFrame(apply)}};
-    measure();
-    addEventListener('scroll',onScroll,{passive:true});
-    addEventListener('resize',()=>{measure();onScroll()});
-  }
-}
+// synthesized mouse-click tick
+let blipCtx=null;
+const clickBlip=()=>{
+  try{
+    blipCtx=blipCtx||new (window.AudioContext||window.webkitAudioContext)();
+    const t=blipCtx.currentTime,dur=.03;
+    const buf=blipCtx.createBuffer(1,Math.ceil(blipCtx.sampleRate*dur),blipCtx.sampleRate);
+    const d=buf.getChannelData(0);
+    for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3);
+    const src=blipCtx.createBufferSource();src.buffer=buf;
+    const f=blipCtx.createBiquadFilter();f.type='bandpass';f.frequency.value=3400;f.Q.value=1;
+    const g=blipCtx.createGain();g.gain.value=.55;
+    src.connect(f);f.connect(g);g.connect(blipCtx.destination);src.start(t);
+  }catch(err){}
+};
 
-// Drag the blossom layer behind the left portrait: it pivots at its base
-// while dragged and springs back with a damped wobble on release.
+// Drag the blossom layer behind the left portrait; the person stays still.
 const floraImg=document.querySelector('.left-portrait img.flora');
 const floraWrap=document.querySelector('.left-portrait');
 if(floraImg&&floraWrap){
@@ -105,19 +93,100 @@ if(floraImg&&floraWrap){
   addEventListener('pointerup',()=>{if(dragging){dragging=false;vel=Math.max(-40,Math.min(40,vel));spring()}});
 }
 
-// Short synthesized mouse-click tick on the portal icons; no audio assets needed.
-let blipCtx=null;
-const clickBlip=()=>{
-  try{
-    blipCtx=blipCtx||new (window.AudioContext||window.webkitAudioContext)();
-    const t=blipCtx.currentTime,dur=.03;
-    const buf=blipCtx.createBuffer(1,Math.ceil(blipCtx.sampleRate*dur),blipCtx.sampleRate);
-    const d=buf.getChannelData(0);
-    for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3);
-    const src=blipCtx.createBufferSource();src.buffer=buf;
-    const f=blipCtx.createBiquadFilter();f.type='bandpass';f.frequency.value=3400;f.Q.value=1;
-    const g=blipCtx.createGain();g.gain.value=.55;
-    src.connect(f);f.connect(g);g.connect(blipCtx.destination);src.start(t);
-  }catch(err){}
-};
-document.querySelectorAll('.portal').forEach(el=>el.addEventListener('pointerdown',clickBlip));
+// ---- floating portal icons -------------------------------------------------
+const hero=document.querySelector('.hero');
+const portals=[...document.querySelectorAll('.hero .portal')];
+if(hero&&portals.length&&deskLayout){
+  const SAFE={x0:.31,x1:.73,y0:.36,y1:.88}; // clear of title, portraits, note
+  const state=portals.map((el,i)=>({
+    el,
+    href:el.getAttribute('href'),
+    x:0,y:0,
+    ang:Math.random()*Math.PI*2,
+    speed:40+Math.random()*22,
+    rot:Math.random()*360,
+    rotV:(Math.random()<.5?-1:1)*(9+Math.random()*11),
+    pause:0,           // eased 0..1, 1 = fully stopped under cursor
+    hovered:false
+  }));
+  let heroW=0,heroH=0,pw=210,ph=200;
+  const placeInitial=()=>{
+    const hb=hero.getBoundingClientRect();
+    heroW=hb.width;heroH=hb.height;
+    const rx0=SAFE.x0*heroW,rx1=SAFE.x1*heroW-pw,ry0=SAFE.y0*heroH,ry1=SAFE.y1*heroH-ph;
+    const spots=[[.15,.1],[.85,.15],[.2,.85],[.8,.8]];
+    state.forEach((s,i)=>{
+      s.x=rx0+(rx1-rx0)*spots[i][0]+(Math.random()-.5)*30;
+      s.y=ry0+(ry1-ry0)*spots[i][1]+(Math.random()-.5)*30;
+    });
+  };
+  placeInitial();
+  addEventListener('resize',placeInitial);
+
+  let mx=-1e4,my=-1e4;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+
+  // click-through: portals have pointer-events:none, so hit-test manually
+  addEventListener('pointerdown',e=>{
+    const hb=hero.getBoundingClientRect();
+    const px=e.clientX-hb.left,py=e.clientY-hb.top;
+    for(const s of state){
+      if(px>=s.x&&px<=s.x+pw&&py>=s.y&&py<=s.y+ph){
+        clickBlip();
+        // icons act as one shared doorway: always land on the trails page
+        setTimeout(()=>{location.hash='#trails';},60);
+        break;
+      }
+    }
+  });
+
+  let last=performance.now(),scrollE=0,queued=false;
+  const readScroll=()=>{
+    queued=false;
+    const hb=hero.getBoundingClientRect();
+    const p=Math.min(1,Math.max(0,-hb.top/(hb.height*.6)));
+    scrollE=p*p*(3-2*p);
+  };
+  addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(readScroll)}},{passive:true});
+
+  const step=now=>{
+    const dt=Math.min(.05,(now-last)/1000);last=now;
+    const hb=hero.getBoundingClientRect();
+    heroW=hb.width;heroH=hb.height;
+    const rx0=SAFE.x0*heroW,rx1=SAFE.x1*heroW-pw,ry0=SAFE.y0*heroH,ry1=SAFE.y1*heroH-ph;
+    state.forEach(s=>{
+      // hover detection in page coords
+      const sx=hb.left+s.x,sy=hb.top+s.y;
+      s.hovered=mx>=sx&&mx<=sx+pw&&my>=sy&&my<=sy+ph;
+      s.pause+=((s.hovered?1:0)-s.pause)*Math.min(1,dt*7);
+      if(motionOK){
+        s.ang+=(Math.random()-.5)*1.5*dt;
+        // gentle separation so icons do not stack
+        state.forEach(o=>{
+          if(o===s)return;
+          const dx=(s.x-o.x),dy=(s.y-o.y),d=Math.hypot(dx,dy);
+          if(d>1&&d<240){s.x+=dx/d*22*dt;s.y+=dy/d*22*dt}
+        });
+        const v=s.speed*(1-s.pause);
+        s.x+=Math.cos(s.ang)*v*dt;
+        s.y+=Math.sin(s.ang)*v*dt;
+        if(s.x<rx0){s.x=rx0;s.ang=Math.PI-s.ang}
+        if(s.x>rx1){s.x=rx1;s.ang=Math.PI-s.ang}
+        if(s.y<ry0){s.y=ry0;s.ang=-s.ang}
+        if(s.y>ry1){s.y=ry1;s.ang=-s.ang}
+        s.rot+=s.rotV*(1-s.pause)*dt;
+      }
+      // converge toward bottom centre while scrolling away
+      const tx=heroW/2-pw/2,ty=heroH*.94-ph/2;
+      const e=scrollE;
+      const fx=s.x+(tx-s.x)*e,fy=s.y+(ty-s.y)*e;
+      const sc=(1-.4*e)*(1+.05*s.pause);
+      s.el.style.transform=`translate3d(${fx}px,${fy}px,0) rotate(${s.rot}deg) scale(${sc})`;
+      s.el.style.opacity=String(1-.65*e);
+    });
+    // cursor feedback while over an icon
+    if(cursor)cursor.classList.toggle('active',state.some(s=>s.hovered));
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}

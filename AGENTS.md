@@ -35,20 +35,29 @@ Visual language:
 - Content
 - Contact + Toolkit
 
-## Locked: Hero / First Screen (as of 2026-08-14)
+## Single page
+There is one page: `index.html`. The earlier `experiment.html` + `lab.js`
+alternative hero was merged into the main page on 2026-08-16 and removed —
+do not reintroduce a second copy of the page. (The old pair is recoverable
+from commit 76a5cde if it is ever wanted again.)
+
+## Locked: Hero / First Screen (as of 2026-08-16)
 The hero section of `index.html` is approved and frozen. Do not change its
-layout, typography, spacing, portraits, background texture, icon positions,
+layout, typography, spacing, portraits, background texture, icon behaviour,
 or interactions unless the request explicitly names the hero.
+
+Current hero behaviour: four label-free portal icons drift inside a safe zone
+clear of the title and portraits, self-rotate, pause under the cursor, play a
+click tick and lead to `#trails`, and converge toward the frame's bottom on
+scroll. The left portrait is two stacked layers (static person over draggable
+blossoms); the right portrait's pupils follow the cursor.
 
 Frozen surface:
 - `index.html` — the `<section class="hero newspaper">` block
 - `home-reference.css` — all `.hero*` / `.portal*` rules (desktop lock layer)
 - `styles.css` — hero, portal, eye-follow, flora rules
-- `script.js` — eye-follow, portal scroll-converge, flora drag, click sound
+- `script.js` — eye-follow, floating portals, flora drag, click sound
 - `assets/rika-standing-person.png`, `assets/rika-standing-flowers.png`
-
-`experiment.html` + `lab.js` are a separate alternative hero. Editing either
-of those does not touch the main page; keep it that way.
 
 Work on later sections (About, Things I Build, Experience, Content, Contact)
 must not reach into the files/rules listed above.
