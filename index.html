@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Rika Ran — Creative Marketer & AI Builder</title>
   <meta name="description" content="Rika Ran's portfolio: brand, growth, content and practical AI experiments.">
-  <link rel="stylesheet" href="styles.css?v=20260816a">
-  <link rel="stylesheet" href="home-reference.css?v=20260816a">
+  <link rel="stylesheet" href="styles.css?v=20260817a">
+  <link rel="stylesheet" href="home-reference.css?v=20260817a">
 </head>
 <body>
   <div class="pixel-cursor" aria-hidden="true"></div>
@@ -141,11 +141,65 @@
 
     <section id="experience" class="experience-section page-section">
       <p class="kicker">EXPERIENCE ARCHIVE</p><h2>The places where<br>ideas met people.</h2>
-      <div class="experience-files">
-        <article class="file-card nio"><span>NIO · CHENGDU</span><small>2022</small><h3>Community,<br>content & growth</h3><p>Worked close to community behaviour and local activation, turning participation into measurable growth.</p><div class="metrics"><b>20K+<em>additions*</em></b><b>100+<em>activities*</em></b><b>1.2→4<em>daily activity*</em></b></div></article>
-        <article class="file-card netease"><span>NETEASE · GUANGZHOU</span><small>Internship</small><h3>Brand & content operations</h3><p>Supported content, campaign and audience-facing work inside a fast-moving digital environment.</p></article>
-        <article class="file-card gps"><span>GPS</span><small>Project</small><h3>Partnerships & communications</h3><p>Connected communication, coordination and cultural context across a collaborative project.</p></article>
+      <p class="exp-hint">Hover a file to preview &middot; click to open the full record</p>
+
+      <div class="drawer" id="expDrawer">
+        <article class="folder f-covestro" data-key="covestro" style="--f:#8d9470">
+          <button class="folder-face" type="button" aria-expanded="false">
+            <span class="folder-tab"><i>01</i><b>COVESTRO</b></span>
+            <span class="folder-peek">
+              <em>APAC Strategic Marketing &middot; Shanghai</em>
+              <strong>Nov 2025 &ndash; Feb 2026</strong>
+              <span class="peek-metric">5+ management decks</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="folder f-netease" data-key="netease" style="--f:#c8bda4">
+          <button class="folder-face" type="button" aria-expanded="false">
+            <span class="folder-tab"><i>02</i><b>NETEASE</b></span>
+            <span class="folder-peek">
+              <em>Overseas Marketing &middot; KOL</em>
+              <strong>Jul 2024 &ndash; Jan 2025</strong>
+              <span class="peek-metric">ROI &gt; 1.8</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="folder f-nio" data-key="nio" style="--f:#9aa8b4">
+          <button class="folder-face" type="button" aria-expanded="false">
+            <span class="folder-tab"><i>03</i><b>NIO</b></span>
+            <span class="folder-peek">
+              <em>User Strategy &middot; Chengdu</em>
+              <strong>May &ndash; Jul 2022</strong>
+              <span class="peek-metric">2,000+ app registrations</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="folder f-media" data-key="media" style="--f:#b98a63">
+          <button class="folder-face" type="button" aria-expanded="false">
+            <span class="folder-tab"><i>04</i><b>NEW MEDIA</b></span>
+            <span class="folder-peek">
+              <em>Content, publicity &amp; production</em>
+              <strong>2020 &ndash; 2024</strong>
+              <span class="peek-metric">3 roles</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="folder f-retail" data-key="retail" style="--f:#6f6f72">
+          <button class="folder-face" type="button" aria-expanded="false">
+            <span class="folder-tab"><i>05</i><b>FRONTLINE</b></span>
+            <span class="folder-peek">
+              <em>Retail &amp; hospitality</em>
+              <strong>2022 &ndash; present</strong>
+              <span class="peek-metric">4 roles</span>
+            </span>
+          </button>
+        </article>
       </div>
+      <p class="exp-note">Figures are self-reported from internal dashboards during each engagement, stated at their conservative reading.</p>
     </section>
 
     <section id="content" class="content-section page-section">
@@ -158,9 +212,138 @@
       <div class="tool-card reveal"><h3>MY WORKING DOCK</h3><div class="tool-grid"><span>ChatGPT</span><span>Claude</span><span>Figma</span><span>Canva</span><span>CapCut</span><span>Adobe</span><span>Shopify</span><span>GA4</span></div></div>
     </section>
   </main>
+
+  <div class="exp-overlay" id="expOverlay" role="dialog" aria-modal="true" aria-labelledby="expOvTitle" hidden>
+    <div class="exp-backdrop" data-close></div>
+    <div class="exp-sheet" role="document">
+      <button class="exp-close" type="button" data-close aria-label="Close record">&times;</button>
+      <div class="exp-scroll" id="expScroll"></div>
+    </div>
+  </div>
+
+  <template id="exp-covestro">
+    <p class="ov-kicker">01 &middot; CORPORATE</p>
+    <h2 id="ovT">Covestro</h2>
+    <p class="ov-role">APAC Strategic Marketing Intern &middot; Shanghai &middot; Nov 2025 &ndash; Feb 2026</p>
+    <p class="ov-lede">Marketing and strategy support for the films and functional-coatings business across Asia-Pacific.</p>
+    <ul class="ov-list">
+      <li>Mapped downstream applications, customer structure and the competitive landscape for films and functional coatings across APAC, and contributed to an industry research report that fed the department&rsquo;s annual planning.</li>
+      <li>Ran an independent case study on Jiangsu Litter, producing a read on competitive advantage and where the openings were.</li>
+      <li>Built an analysis model over three to five years of historical sales data, comparing BOPP, BOPET and PP across regions and product lines to surface the points where performance broke from its own trend.</li>
+      <li>Supported a new chip carrier-tape project, pulling sales, marketing and external research into <b>5+ management-level decks</b> I produced on my own.</li>
+    </ul>
+    <ul class="ov-metrics"><li><b>5+</b><span>management decks</span></li><li><b>3&ndash;5 yrs</b><span>sales data modelled</span></li><li><b>B2B</b><span>industrial materials</span></li></ul>
+    <p class="ov-tags">Market research &middot; Data modelling &middot; Strategic analysis &middot; B2B</p>
+  </template>
+
+  <template id="exp-netease">
+    <p class="ov-kicker">02 &middot; CORPORATE</p>
+    <h2 id="ovT">NetEase</h2>
+    <p class="ov-role">Overseas Marketing Intern, KOL &middot; Jul 2024 &ndash; Jan 2025</p>
+    <p class="ov-lede">Overseas creator programmes for NetEase&rsquo;s own and partner game titles.</p>
+    <ul class="ov-list">
+      <li>Sourced creators on Instagram, X and YouTube across e-commerce, gaming and lifestyle &mdash; assessing fit, content and rates, <b>signing four to five a week</b> and owning each deal through to the video going live.</li>
+      <li>Owned media strategy (mix, brief, scheduling), launch coordination and performance analysis for <b>TGS 2024</b> and the Hainan&ndash;ASEAN TikTok short-video competition.</li>
+      <li>Produced breakout pieces including <i>A Day at TGS 2024</i> and Marvel Rivals coverage &mdash; <b>million-level reach at an overall ROI above 1.8</b>.</li>
+      <li>Built a <b>Python batch-outreach workflow</b> that took sourcing from around 100 to <b>500+ creators per batch</b>.</li>
+    </ul>
+    <ul class="ov-metrics"><li><b>4&ndash;5</b><span>signings per week</span></li><li><b>&gt;1.8</b><span>overall ROI</span></li><li><b>100 &rarr; 500+</b><span>outreach per batch</span></li></ul>
+    <p class="ov-tags">Creator BD &middot; Overseas marketing &middot; Media strategy &middot; Content</p>
+  </template>
+
+  <template id="exp-nio">
+    <p class="ov-kicker">03 &middot; CORPORATE</p>
+    <h2 id="ovT">NIO</h2>
+    <p class="ov-role">User Strategy &amp; Community Operations &middot; Chengdu &middot; May &ndash; Jul 2022</p>
+    <p class="ov-lede">Growth and engagement work inside the NIO app community.</p>
+    <ul class="ov-list">
+      <li>Profiled audiences and traffic peaks across the WeChat account, video channel and Weibo, then built a public-reach-to-owned-community path that drove <b>2,000+ app registrations in a single month</b>.</li>
+      <li>Tuned push, banner and account messaging to pull people into posting: <b>posts up 13%, comments up 25%</b>.</li>
+      <li>Planned <b>20+ lightweight campaigns</b> around festivals and events, averaging over 30% community participation.</li>
+      <li>Read click and content-heat data to adjust recommendation rules, lifting <b>average daily logins from 1.2 to 2</b>.</li>
+    </ul>
+    <ul class="ov-metrics"><li><b>2,000+</b><span>app registrations / month</span></li><li><b>+13% / +25%</b><span>posts / comments</span></li><li><b>1.2 &rarr; 2</b><span>daily logins</span></li></ul>
+    <p class="ov-tags">User operations &middot; Campaigns &middot; Community growth &middot; CRM segmentation</p>
+  </template>
+
+  <template id="exp-media">
+    <p class="ov-kicker">04 &middot; CONTENT, PUBLICITY &amp; PRODUCTION</p>
+    <h2 id="ovT">New Media</h2>
+    <p class="ov-role">Three roles &middot; 2020 &ndash; 2024</p>
+    <p class="ov-lede">Where I learned how audiences actually behave &mdash; by publishing constantly, and by putting a show in front of a real room.</p>
+
+    <section class="ov-sub">
+      <h3>Tiaogezi Media &mdash; New Media Content Intern</h3>
+      <p class="ov-role">Nov 2020 &ndash; May 2021 &middot; China</p>
+      <ul class="ov-list">
+        <li>Ran the Douyin account <i>Happy Orchard Life</i>, adding <b>15,000+ followers and 42,000+ likes</b> inside a year.</li>
+        <li>Produced <b>200+ short videos</b> with copy over six months and built the content SOP behind them, averaging 3,000+ reach per post.</li>
+        <li>Wrote <b>9 competitor teardowns</b> across Douyin, Kuaishou and Baijiahao on covers, titles and structure.</li>
+      </ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3>GPS Chinese Students&rsquo; Society &mdash; Head of Publicity</h3>
+      <p class="ov-role">Aug 2020 &ndash; Aug 2022 &middot; Kingston</p>
+      <ul class="ov-list">
+        <li>Planned themed series such as Summer Highlights and Back-to-School Briefing, publishing <b>30+ articles to 18,000+ cumulative reads</b> &mdash; the strongest of the campus outlets.</li>
+        <li>Ran weekly output of two to five posts across Instagram, Facebook, TikTok, Weibo and Xiaohongshu.</li>
+        <li>Built a competency model for the team and led recruiting: <b>100+ interviews, 20+ hired</b>.</li>
+      </ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3><i>Jinsha</i> Musical &mdash; Production Manager</h3>
+      <p class="ov-role">Kingston</p>
+      <ul class="ov-list">
+        <li>Led a cross-cultural musical adaptation from script localisation through to live performance, coordinating a <b>100+ person team</b> across performance, design and marketing.</li>
+        <li>Set the production timeline and managed venue, staging, build and strike.</li>
+        <li>Produced posters and digital invitations and ran cross-platform marketing &mdash; <b>90+ assets, 2,000+ attendance</b>.</li>
+      </ul>
+    </section>
+    <p class="ov-tags">Content operations &middot; Publicity &middot; Event production &middot; Cross-team coordination</p>
+  </template>
+
+  <template id="exp-retail">
+    <p class="ov-kicker">05 &middot; RETAIL &amp; HOSPITALITY</p>
+    <h2 id="ovT">Frontline</h2>
+    <p class="ov-role">Four roles &middot; 2022 &ndash; present &middot; Melbourne &amp; Canada</p>
+    <p class="ov-lede">Most marketing graduates have never stood on the other side of the counter. This is the part of my background that makes channel and BD conversations concrete rather than theoretical.</p>
+
+    <section class="ov-sub">
+      <h3>Chemist Warehouse &mdash; Retail Assistant</h3>
+      <p class="ov-role">Jul 2026 &ndash; present &middot; Melbourne</p>
+      <ul class="ov-list"><li>Hands-on retail floor work &mdash; end caps, prime positions, POSM and sell-through in a high-volume pharmacy chain.</li></ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3>Good Neighbour Asian Supermarket &mdash; Cashier &amp; Stock Assistant</h3>
+      <p class="ov-role">Apr 2024 &ndash; present &middot; Melbourne CBD</p>
+      <ul class="ov-list">
+        <li>Bilingual service in English and Mandarin, bridging for international-student customers with limited English.</li>
+        <li>POS, peak-hour cash and card handling, stock turnover, display and shelf work.</li>
+        <li>Held alongside a full-time master&rsquo;s degree.</li>
+      </ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3>Haidilao &mdash; Floor Staff</h3>
+      <p class="ov-role">Feb &ndash; May 2025 &middot; Melbourne</p>
+      <ul class="ov-list"><li>Front-of-house service to Haidilao standards for bilingual guests, coordinating with kitchen and floor while running several tables at peak.</li></ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3>BV Asian Market &mdash; Sales Assistant</h3>
+      <p class="ov-role">Nov 2022 &ndash; Jan 2024 &middot; Canada</p>
+      <ul class="ov-list"><li>Sold across food and beauty categories, and handled <b>Shopify listing and product upload</b> for the store&rsquo;s online catalogue.</li></ul>
+    </section>
+    <p class="ov-tags">Retail floor &middot; Channel vocabulary &middot; Bilingual service &middot; E-commerce listing</p>
+  </template>
+
   <footer><span>© 2026 RIKA RAN</span><span>BUILT WITH CURIOSITY, TESTED WITH PEOPLE.</span><a href="#top">BACK TO TOP ↑</a></footer>
-  <script src="script.js?v=20260816a"></script>
+  <script src="script.js?v=20260817a"></script>
   <script src="build-wheel.js?v=9"></script>
+  <script src="experience.js?v=1"></script>
   <!-- Stable local portrait asset bindings. Keep layout and motion untouched. -->
   <script id="rika-portrait-asset-fix">
     (() => {

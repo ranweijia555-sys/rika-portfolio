@@ -96,7 +96,7 @@ if(floraImg&&floraWrap){
 // ---- floating portal icons -------------------------------------------------
 const hero=document.querySelector('.hero');
 const portals=[...document.querySelectorAll('.hero .portal')];
-if(hero&&portals.length&&deskLayout){
+if(hero&&portals.length){
   const SAFE={x0:.31,x1:.73,y0:.36,y1:.88}; // clear of title, portraits, note
   const state=portals.map((el,i)=>({
     el,
@@ -128,6 +128,7 @@ if(hero&&portals.length&&deskLayout){
 
   // click-through: portals have pointer-events:none, so hit-test manually
   addEventListener('pointerdown',e=>{
+    if(!wideNow())return;
     const hb=hero.getBoundingClientRect();
     const px=e.clientX-hb.left,py=e.clientY-hb.top;
     for(const s of state){
@@ -149,7 +150,19 @@ if(hero&&portals.length&&deskLayout){
   };
   addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(readScroll)}},{passive:true});
 
+  const wideNow=()=>matchMedia('(min-width:901px)').matches;
   const step=now=>{
+    // Width is checked every frame, not once at load: the CSS only hands the
+    // portals over to absolute positioning while .js-portals is set, so a
+    // window resized across the breakpoint can never strand them in a corner.
+    if(!wideNow()){
+      if(hero.classList.contains('js-portals')){
+        hero.classList.remove('js-portals');
+        state.forEach(s=>{s.el.style.transform='';s.el.style.opacity=''});
+      }
+      last=now;requestAnimationFrame(step);return;
+    }
+    if(!hero.classList.contains('js-portals')){hero.classList.add('js-portals');placeInitial()}
     const dt=Math.min(.05,(now-last)/1000);last=now;
     const hb=hero.getBoundingClientRect();
     heroW=hb.width;heroH=hb.height;
