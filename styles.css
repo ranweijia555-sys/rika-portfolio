@@ -255,6 +255,9 @@ body.exp-locked{overflow:hidden}
 /* Not every tool has an official mark to use: CapCut, Final Cut Pro, Excel,
    Xiumi and plain SQL have none, so those stay wordmarks by design rather
    than carrying an invented logo. */
+/* A wordmark chip drops the icon box entirely, whether it was authored that
+   way or fell back because its logo file is not there yet. */
+.tool-grid .tool.is-word .tool-ico{display:none}
 .tool-grid .tool.is-word{min-height:82px}
 .tool-grid .tool.is-word b{font:900 13px/1.25 Georgia,serif;letter-spacing:-.2px}
 @media(max-width:900px){.tool-grid{gap:9px}.tool-grid .tool{width:76px;min-height:74px}}

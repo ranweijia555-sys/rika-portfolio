@@ -11,20 +11,26 @@ originals all but disappear on it:
 | turso      | #4FF8D2    | #12C4A0    |
 | javascript | #F7DF1E    | #C9B200    |
 
-## The five without a mark
+## The three waiting on a file
 
-CapCut, Final Cut Pro, Excel, Xiumi and SQL have no icon available —
-Microsoft had its brand icons removed from the set, and SQL is a language
-rather than a product, so it has no logo at all. Those five are wordmark
-chips by design; no logo was invented for them.
+CapCut, Final Cut Pro and Xiumi have no usable public icon: the only
+CapCut file on Wikimedia Commons is a 960x182 wordmark rather than the
+square mark, and Apple's app icons are not there at all.
 
-To give one a real logo later, drop the file here and swap its chip:
+Their chips are already wired. Drop these three files in and they appear
+on the next reload, with no edit anywhere:
 
-    <span class="tool" data-logo="capcut">
-      <i class="tool-ico" data-mono="C"><img class="logo" src="assets/logos/capcut.svg" alt=""></i>
-      <b>CapCut</b>
-    </span>
+    assets/logos/capcut.png
+    assets/logos/finalcutpro.png
+    assets/logos/xiumi.png
 
-(remove `is-word` from the span). SVG is best; a transparent PNG at 96px
-or more also works. The monogram behind `data-mono` shows only while no
-image is present.
+Square, transparent background, 96px or larger. Until a file exists the
+chip falls back to a wordmark on its own, so a missing one never shows a
+broken image. To use SVG instead, change the extension in that chip's
+<img src>.
+
+## The two with no mark to use
+
+Excel and SQL stay wordmarks: Microsoft had its brand icons removed from
+simple-icons, and SQL is a language rather than a product, so it has no
+logo at all. Neither got an invented one.
