@@ -1,6 +1,20 @@
 # Experience photos
 
-Ten slots, one per role. Each is an empty designed frame until a photo
+Two kinds of slot.
+
+**Covers (5) — fill these first.** They sit in the drawer itself, so a
+visitor sees them without clicking anything. Same fill method, but the
+figure is a `.peek-photo` span inside the folder button:
+
+    <span class="peek-photo" data-slot="cover-nio">
+      <img src="assets/experience/nio.jpg" alt="">
+      <span class="peek-slot">...</span>       <!-- leave it; it auto-hides -->
+    </span>
+
+Cover files: `covestro.jpg` `netease.jpg` `nio.jpg` `media.jpg`
+`retail.jpg`. Landscape, roughly 3:2; they are cropped to fill.
+
+**Record photos (10) — depth, can wait.** One per role. Each is an empty designed frame until a photo
 lands in it.
 
 To fill one, drop the file in this folder and add an `<img>` as the first

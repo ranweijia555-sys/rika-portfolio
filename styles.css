@@ -88,6 +88,7 @@
 
 /* ---- Experience: file drawer + full-record overlay ----------------------- */
 .exp-hint{margin:26px 0 0;font:900 11px Arial,sans-serif;letter-spacing:3px;color:rgba(255,242,217,.5)}
+.exp-hint b{color:var(--yellow)}
 .exp-note{margin:26px 0 0;max-width:60ch;font-size:12.5px;line-height:1.6;color:rgba(255,242,217,.42)}
 .drawer{display:flex;gap:10px;margin-top:34px;height:clamp(420px,52vh,540px)}
 .drawer .folder{flex:0 1 116px;min-width:0;transition:flex-basis .55s cubic-bezier(.22,.75,.2,1),flex-grow .55s cubic-bezier(.22,.75,.2,1)}
@@ -102,13 +103,31 @@
   writing-mode:vertical-rl;text-orientation:mixed}
 .folder-tab i{font:900 11px/1 monospace;letter-spacing:2px;font-style:normal;opacity:.62}
 .folder-tab b{font:900 clamp(17px,1.4vw,22px)/1 Arial,sans-serif;letter-spacing:4px}
-.folder-peek{position:absolute;left:116px;right:0;bottom:0;padding:0 30px 34px;opacity:0;
-  transition:opacity .4s .12s;pointer-events:none}
+.folder-peek{position:absolute;left:116px;right:0;top:0;bottom:0;display:flex;flex-direction:column;
+  opacity:0;transition:opacity .38s .1s;pointer-events:none}
 .drawer .folder.is-open .folder-peek{opacity:1}
-.folder-peek em{display:block;font:900 17px/1.3 Georgia,serif;font-style:normal}
-.folder-peek strong{display:block;margin-top:7px;font:900 11px/1 monospace;letter-spacing:1.6px;opacity:.72}
-.peek-metric{display:inline-block;margin-top:16px;padding:9px 15px;border-radius:30px;
-  background:rgba(30,22,20,.82);color:#fdf7ea;font:900 11px Arial,sans-serif;letter-spacing:1.2px}
+.peek-photo{position:relative;display:block;flex:0 0 46%;overflow:hidden;background:#efe6d6;border-bottom:3px solid rgba(30,22,20,.22)}
+.peek-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.peek-slot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  background-image:repeating-linear-gradient(45deg,rgba(30,22,20,.05) 0 9px,transparent 9px 18px)}
+.peek-photo:has(img) .peek-slot{display:none}
+.peek-slot span{font:900 10.5px Arial,sans-serif;letter-spacing:3.2px;color:#a8988e}
+.peek-slot b{font:900 10px monospace;color:#bdaea3}
+.peek-body{flex:1 1 auto;display:flex;flex-direction:column;padding:20px 24px 22px}
+.peek-body em{display:block;font:900 17px/1.25 Georgia,serif;font-style:normal}
+.peek-body strong{display:block;margin-top:6px;font:900 10.5px/1 monospace;letter-spacing:1.5px;opacity:.7}
+.peek-blurb{display:block;margin-top:12px;font:400 13.5px/1.5 Arial,sans-serif;opacity:.86}
+.peek-foot{margin-top:auto;padding-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.peek-metric{display:inline-block;padding:8px 14px;border-radius:30px;background:rgba(30,22,20,.82);
+  color:#fdf7ea;font:900 10.5px Arial,sans-serif;letter-spacing:1.1px}
+/* The record only pays off if people realise the file opens, so the call to
+   action is a solid control rather than another line of text. */
+.folder-cta{display:inline-block;padding:10px 16px;border-radius:30px;background:#fdf7ea;color:#20191c;
+  border:2px solid rgba(30,22,20,.85);font:900 10.5px Arial,sans-serif;letter-spacing:1.2px;
+  box-shadow:0 3px 0 rgba(30,22,20,.5);transition:transform .2s,box-shadow .2s}
+.folder-face:hover .folder-cta{transform:translateY(-2px);box-shadow:0 5px 0 rgba(30,22,20,.5)}
+.folder-face:active .folder-cta{transform:translateY(1px);box-shadow:0 1px 0 rgba(30,22,20,.5)}
+.folder-tab u{margin-top:auto;padding-bottom:14px;font-size:15px;text-decoration:none;opacity:.55}
 .folder-face:focus-visible{outline:3px solid var(--yellow);outline-offset:4px}
 
 .exp-overlay{position:fixed;inset:0;z-index:400;display:grid;place-items:center;padding:4vh 3vw}
@@ -142,7 +161,9 @@ body.exp-locked{overflow:hidden}
   .folder-face{height:104px;border-radius:4px}
   .folder-tab{position:static;width:auto;writing-mode:horizontal-tb;flex-direction:row;align-items:center;
     gap:12px;padding:20px 22px 0}
-  .folder-peek{position:static;padding:6px 22px 18px;opacity:1}
+  .folder-peek{position:static;opacity:1;flex-direction:column}
+  .peek-photo{flex:0 0 150px}
+  .peek-body{padding:16px 22px 18px}
   .folder-peek em{font-size:15px}
   .peek-metric{margin-top:10px}
   .exp-scroll{padding:48px 22px 40px}
