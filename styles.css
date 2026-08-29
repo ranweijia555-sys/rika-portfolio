@@ -90,21 +90,27 @@
 .exp-hint{margin:26px 0 0;font:900 11px Arial,sans-serif;letter-spacing:3px;color:rgba(255,242,217,.5)}
 .exp-hint b{color:var(--yellow)}
 .exp-note{margin:26px 0 0;max-width:60ch;font-size:12.5px;line-height:1.6;color:rgba(255,242,217,.42)}
-.drawer{display:flex;gap:10px;margin-top:34px;height:clamp(420px,52vh,540px)}
-.drawer .folder{flex:0 1 116px;min-width:0;transition:flex-basis .55s cubic-bezier(.22,.75,.2,1),flex-grow .55s cubic-bezier(.22,.75,.2,1)}
-.drawer .folder.is-open{flex:1 1 auto}
+/* Grid tracks, not flex items: flex-basis:auto cannot be interpolated, so the
+   open file used to jump its width while flex-grow animated separately. One
+   transition on one element also means one layout pass per frame. */
+.drawer{display:grid;grid-auto-flow:column;grid-template-columns:repeat(5,1fr);gap:10px;
+  margin-top:34px;height:clamp(420px,52vh,540px);
+  transition:grid-template-columns .55s cubic-bezier(.22,.75,.2,1)}
+.drawer .folder{min-width:0;overflow:hidden}
+
 .folder-face{position:relative;display:block;width:100%;height:100%;padding:0;text-align:left;cursor:pointer;
   border:0;border-radius:4px 14px 4px 4px;background:var(--f,#8d9470);color:#1e1a1c;overflow:hidden;
   box-shadow:0 16px 34px rgba(0,0,0,.34);
   background-image:radial-gradient(rgba(30,22,20,.10) .8px,transparent .9px);background-size:5px 5px}
 .folder-face:before{content:"";position:absolute;left:0;right:0;top:0;height:34px;background:rgba(255,255,255,.16)}
-.folder-tab{position:absolute;left:0;top:0;bottom:0;width:116px;display:flex;flex-direction:column;
+.folder-tab{position:absolute;left:0;top:0;bottom:0;width:100%;display:flex;flex-direction:column;
   align-items:center;justify-content:flex-start;gap:14px;padding-top:16px;
   writing-mode:vertical-rl;text-orientation:mixed}
 .folder-tab i{font:900 11px/1 monospace;letter-spacing:2px;font-style:normal;opacity:.62}
 .folder-tab b{font:900 clamp(17px,1.4vw,22px)/1 Arial,sans-serif;letter-spacing:4px}
 .folder-peek{position:absolute;left:116px;right:0;top:0;bottom:0;display:flex;flex-direction:column;
   opacity:0;transition:opacity .38s .1s;pointer-events:none}
+.drawer .folder.is-open .folder-tab{width:116px}
 .drawer .folder.is-open .folder-peek{opacity:1}
 .peek-photo{position:relative;display:block;flex:0 0 46%;overflow:hidden;background:#efe6d6;border-bottom:3px solid rgba(30,22,20,.22)}
 .peek-photo img{display:block;width:100%;height:100%;object-fit:cover}
@@ -156,8 +162,8 @@
 .ov-tags{margin:0;font:900 12px/1.7 monospace;letter-spacing:.4px;color:#8b7c74}
 body.exp-locked{overflow:hidden}
 @media(max-width:900px){
-  .drawer{flex-direction:column;height:auto;gap:12px}
-  .drawer .folder,.drawer .folder.is-open{flex:0 0 auto}
+  .drawer{grid-auto-flow:row;grid-template-columns:1fr!important;height:auto;gap:12px;transition:none}
+  .drawer .folder{overflow:visible}
   .folder-face{height:104px;border-radius:4px}
   .folder-tab{position:static;width:auto;writing-mode:horizontal-tb;flex-direction:row;align-items:center;
     gap:12px;padding:20px 22px 0}

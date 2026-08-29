@@ -18,22 +18,43 @@
   let lastFocus = null;
 
   // ---- drawer preview ------------------------------------------------------
-  const openFolder = f => {
-    if (!wide()) return;
-    folders.forEach(o => o.classList.toggle('is-open', o === f));
-  };
-  const closeFolders = () => folders.forEach(o => o.classList.remove('is-open'));
+  // Widths live on the grid container. Track sizes are all fr units so the
+  // browser can interpolate them; the open file simply claims more of them.
+  const OPEN_FR = 6.9;
+  const setTracks = i =>
+    drawer.style.gridTemplateColumns =
+      folders.map((_, n) => (n === i ? OPEN_FR : 1) + 'fr').join(' ');
 
-  folders.forEach(f => {
-    f.addEventListener('pointerenter', () => openFolder(f));
-    f.querySelector('.folder-face').addEventListener('focus', () => openFolder(f));
+  let openIndex = 0;
+  const openFolder = i => {
+    if (!wide() || i === openIndex) return;
+    openIndex = i;
+    folders.forEach((o, n) => o.classList.toggle('is-open', n === i));
+    setTracks(i);
+  };
+
+  // Sweeping the pointer across the drawer used to fire an open on every file
+  // it crossed, and each one faded its preview in and out — that flashing was
+  // the cursor's path being replayed, not a rendering fault. A short intent
+  // delay means only the file you settle on opens.
+  let intent = null;
+  const wantOpen = i => {
+    clearTimeout(intent);
+    intent = setTimeout(() => openFolder(i), 90);
+  };
+
+  folders.forEach((f, i) => {
+    f.addEventListener('pointerenter', () => wantOpen(i));
+    f.querySelector('.folder-face').addEventListener('focus', () => { clearTimeout(intent); openFolder(i); });
     f.querySelector('.folder-face').addEventListener('click', () => {
       location.hash = 'exp-' + f.dataset.key;
     });
   });
-  drawer.addEventListener('pointerleave', closeFolders);
+  drawer.addEventListener('pointerleave', () => clearTimeout(intent));
+
   // Open the first file by default so the drawer never reads as empty.
-  if (folders[0]) folders[0].classList.add('is-open');
+  if (folders[0] && wide()) { folders[0].classList.add('is-open'); setTracks(0); }
+  addEventListener('resize', () => { if (wide()) setTracks(openIndex); else drawer.style.gridTemplateColumns = ''; });
 
   // ---- record overlay ------------------------------------------------------
   const show = key => {
