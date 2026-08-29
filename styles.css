@@ -196,3 +196,20 @@ body.exp-locked{overflow:hidden}
 .phone-dots i.on{background:#fff;height:16px;border-radius:3px}
 @media(max-width:900px){.content-phone .phone-screen{height:500px}.slide-cap h3{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.phone-scroll{scroll-behavior:auto}}
+
+/* ---- Experience overlay: photo slots ------------------------------------ */
+/* A slot stays a designed empty frame until a photo lands in it: drop an
+   <img> inside the <figure> and the placeholder is hidden automatically. */
+.ov-figure{margin:0 0 24px;border:3px solid rgba(40,34,38,.16);border-radius:4px;overflow:hidden;background:#f4ecdd}
+.ov-figure .ov-slot{aspect-ratio:16/10;display:grid;place-content:center;justify-items:center;gap:8px;
+  background-image:repeating-linear-gradient(45deg,rgba(40,34,38,.045) 0 9px,transparent 9px 18px)}
+.ov-figure .ov-slot span{font:900 11px Arial,sans-serif;letter-spacing:3.4px;color:#a8988e}
+.ov-figure .ov-slot b{font:900 10.5px monospace;letter-spacing:.6px;color:#c0b2a7}
+.ov-figure img{display:block;width:100%;height:auto}
+.ov-figure img + .ov-slot,.ov-figure:has(img) .ov-slot{display:none}
+.ov-figure figcaption{padding:11px 15px;border-top:1px solid rgba(40,34,38,.14);
+  font:900 10.5px Arial,sans-serif;letter-spacing:1.5px;color:#8b7c74}
+.ov-sub .ov-figure{margin-top:14px}
+.ov-sub .ov-figure .ov-slot{aspect-ratio:16/7}
+.ov-sub .ov-lede{margin:14px 0 14px;font-size:16px}
+@media(max-width:900px){.ov-figure .ov-slot{aspect-ratio:4/3}}
