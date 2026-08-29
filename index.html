@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Rika Ran — Creative Marketer & AI Builder</title>
   <meta name="description" content="Rika Ran's portfolio: brand, growth, content and practical AI experiments.">
-  <link rel="stylesheet" href="styles.css?v=20260819a">
+  <link rel="stylesheet" href="styles.css?v=20260820c">
   <link rel="stylesheet" href="home-reference.css?v=20260817a">
 </head>
 <body>
@@ -244,7 +244,17 @@
         </ul>
         <a href="mailto:ranweijia555@gmail.com">Ask me about the stories behind the numbers &#8599;</a>
       </div>
-      <div class="content-phone reveal" tabindex="0"><div class="phone-top">9:41 <span>&#9679; &#9679; &#9679;</span></div><div class="phone-scroll"><article><small>TOKYO / FOOD</small><h3>A tiny place worth crossing town for.</h3><p>save for later</p></article><article><small>BEHIND THE SCENES</small><h3>How a stage becomes a shared memory.</h3><p>theatre notes</p></article><article><small>DAILY LIFE</small><h3>Small rituals, useful signals.</h3><p>field notes</p></article></div><b>Swipe for more &darr;</b></div>
+      <div class="content-phone reveal">
+        <div class="phone-top">9:41 <span>&#9679; &#9679; &#9679;</span></div>
+        <div class="phone-screen">
+          <div class="phone-scroll" id="phoneFeed" tabindex="0" aria-label="Content feed, use arrow keys to move between posts">
+            <article class="slide"><div class="slide-cap"><small>TOKYO / FOOD</small><h3>A tiny place worth crossing town for.</h3><p>save for later</p></div></article>
+            <article class="slide"><div class="slide-cap"><small>BEHIND THE SCENES</small><h3>How a stage becomes a shared memory.</h3><p>theatre notes</p></div></article>
+            <article class="slide"><div class="slide-cap"><small>DAILY LIFE</small><h3>Small rituals, useful signals.</h3><p>field notes</p></div></article>
+          </div>
+          <div class="phone-dots" id="phoneDots" aria-hidden="true"></div>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="contact-section page-section">
@@ -403,9 +413,10 @@
   </template>
 
   <footer><span>© 2026 RIKA RAN</span><span>BUILT WITH CURIOSITY, TESTED WITH PEOPLE.</span><a href="#top">BACK TO TOP ↑</a></footer>
-  <script src="script.js?v=20260817a"></script>
+  <script src="script.js?v=20260820a"></script>
   <script src="build-wheel.js?v=10"></script>
   <script src="experience.js?v=1"></script>
+  <script src="phone-feed.js?v=2"></script>
   <!-- Stable local portrait asset bindings. Keep layout and motion untouched. -->
   <script id="rika-portrait-asset-fix">
     (() => {

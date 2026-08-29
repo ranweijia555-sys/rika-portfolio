@@ -173,3 +173,26 @@ body.exp-locked{overflow:hidden}
   .lang-row li{flex:1 1 44%}
   .tool-card .tool-grid span{font-size:14px;padding:10px 13px}
 }
+
+/* ---- Content: phone feed that pages like a real video app --------------- */
+.content-phone{padding:46px 16px 20px}
+.content-phone .phone-screen{position:relative;height:566px;width:auto;left:auto;top:auto;z-index:auto;border-radius:26px;overflow:hidden;background:#171113;border:4px solid var(--ink)}
+.phone-scroll{height:100%;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;
+  scrollbar-width:none;-ms-overflow-style:none;touch-action:pan-y;cursor:grab}
+.phone-scroll::-webkit-scrollbar{display:none}
+.phone-scroll.is-dragging{cursor:grabbing;scroll-snap-type:none}
+/* Each slide is exactly one screen tall with no margin, so the snap point and
+   the slide edge are the same line — otherwise paging always lands crooked. */
+.phone-scroll .slide{position:relative;height:100%;margin:0;padding:0;border:0;overflow:hidden;
+  scroll-snap-align:start;scroll-snap-stop:always;background:linear-gradient(#ca6384,#713b4d)}
+.phone-scroll .slide img{width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none}
+.slide-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 24px;color:#fff;
+  background:linear-gradient(transparent,rgba(18,10,12,.28) 32%,rgba(18,10,12,.86))}
+.slide-cap small{display:block;margin-bottom:8px;font:900 10.5px Arial,sans-serif;letter-spacing:2.4px;opacity:.86}
+.slide-cap h3{margin:0;font:900 27px/1.08 Georgia,serif;letter-spacing:-.6px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.slide-cap p{margin:10px 0 0;font:900 11.5px Arial,sans-serif;letter-spacing:1.2px;opacity:.82}
+.phone-dots{position:absolute;right:10px;top:50%;transform:translateY(-50%);display:grid;gap:7px;z-index:3}
+.phone-dots i{display:block;width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.42);transition:.3s}
+.phone-dots i.on{background:#fff;height:16px;border-radius:3px}
+@media(max-width:900px){.content-phone .phone-screen{height:500px}.slide-cap h3{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.phone-scroll{scroll-behavior:auto}}
