@@ -62,6 +62,8 @@
     if (!tpl) return false;
     scroll.innerHTML = '';
     scroll.appendChild(tpl.content.cloneNode(true));
+    // Record photos live in a <template>, so they only exist to be filled now.
+    if (window.fillPhotoSlots) window.fillPhotoSlots(scroll);
     scroll.scrollTop = 0;
     overlay.hidden = false;
     document.body.classList.add('exp-locked');
