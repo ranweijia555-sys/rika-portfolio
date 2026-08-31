@@ -27,10 +27,18 @@
 
   const fillAll = root => {
     if (!manifest) return;
-    root.querySelectorAll('.peek-photo[data-slot],.ov-figure[data-slot]').forEach(el => {
+    root.querySelectorAll('.peek-photo[data-slot]').forEach(el => {
       const slot = el.dataset.slot.replace(/^cover-/, '');
+      fill(el, manifest.experience[slot], '');
+    });
+    // A record photo with no file is dropped rather than left as an empty
+    // frame: a placeholder reads as unfinished once the rest are filled in.
+    // The drawer covers keep theirs, since the folder is laid out around them.
+    root.querySelectorAll('.ov-figure[data-slot]').forEach(el => {
+      const src = manifest.experience[el.dataset.slot];
+      if (!src) { el.remove(); return; }
       const cap = el.querySelector('figcaption');
-      fill(el, manifest.experience[slot], cap ? cap.textContent.trim() : '');
+      fill(el, src, cap ? cap.textContent.trim() : '');
     });
     root.querySelectorAll('.slide[data-slot]').forEach(el => {
       const h = el.querySelector('.slide-cap h3');
