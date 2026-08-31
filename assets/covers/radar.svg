@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 312">
+  <rect width="560" height="312" fill="#e8ecf0"/>
+  <text x="28" y="38" fill="#1a2a3a" font-family="Georgia,serif" font-size="20" font-weight="900">Content Radar</text>
+  <text x="28" y="56" fill="#6b8aaa" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.5">DOUYIN · XIAOHONGSHU · CLAUDE API</text>
+  <text x="28" y="120" fill="#1a2a3a" font-family="Georgia,serif" font-size="34" font-weight="900">Hours</text>
+  <text x="28" y="155" fill="#1a2a3a" font-family="Georgia,serif" font-size="34" font-weight="900">→ Min</text>
+  <text x="28" y="174" fill="#7a98aa" font-family="Arial,sans-serif" font-size="9" letter-spacing="1">RESEARCH TIME</text>
+  <line x1="28" y1="188" x2="200" y2="188" stroke="#6a7f8c40" stroke-width="1"/>
+  <text x="28" y="208" fill="#4a6a7a" font-family="Arial,sans-serif" font-size="10">2 platforms tracked</text>
+  <text x="28" y="226" fill="#4a6a7a" font-family="Arial,sans-serif" font-size="10">Breakout topic discovery</text>
+  <text x="28" y="244" fill="#4a6a7a" font-family="Arial,sans-serif" font-size="10">AI-generated brief</text>
+  <g transform="translate(390,176)">
+    <circle cx="0" cy="0" r="112" fill="none" stroke="#9aabb840" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="78" fill="none" stroke="#9aabb840" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="44" fill="none" stroke="#9aabb840" stroke-width="1.5"/>
+    <line x1="0" y1="-112" x2="0" y2="112" stroke="#9aabb828" stroke-width="1"/>
+    <line x1="-97" y1="-56" x2="97" y2="56" stroke="#9aabb828" stroke-width="1"/>
+    <line x1="-97" y1="56" x2="97" y2="-56" stroke="#9aabb828" stroke-width="1"/>
+    <polygon points="0,-95 82,-47 72,55 0,74 -64,32 -62,-60" fill="#6a7f8c38" stroke="#6a7f8c" stroke-width="2"/>
+    <circle cx="0" cy="-95" r="5" fill="#6a7f8c"/><circle cx="82" cy="-47" r="5" fill="#6a7f8c"/>
+    <circle cx="72" cy="55" r="5" fill="#6a7f8c"/><circle cx="0" cy="74" r="5" fill="#6a7f8c"/>
+    <circle cx="-64" cy="32" r="5" fill="#6a7f8c"/><circle cx="-62" cy="-60" r="5" fill="#6a7f8c"/>
+    <text x="0" y="-120" text-anchor="middle" fill="#3a5a6a" font-family="Arial" font-size="9" font-weight="900">热度</text>
+    <text x="96" y="-44" fill="#3a5a6a" font-family="Arial" font-size="9" font-weight="900">抖音</text>
+    <text x="82" y="70" fill="#3a5a6a" font-family="Arial" font-size="9" font-weight="900">小红书</text>
+    <text x="-8" y="130" text-anchor="middle" fill="#3a5a6a" font-family="Arial" font-size="9" font-weight="900">竞品</text>
+    <text x="-118" y="40" fill="#3a5a6a" font-family="Arial" font-size="9" font-weight="900">选题</text>
+    <text x="-116" y="-55" fill="#3a5a6a" font-family="Arial" font-size="9" font-weight="900">框架</text>
+  </g>
+</svg>

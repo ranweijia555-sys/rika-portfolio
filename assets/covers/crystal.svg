@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 312">
+  <rect width="560" height="312" fill="#0c1e12"/>
+  <rect width="560" height="20" fill="#091510"/>
+  <circle cx="400" cy="168" r="122" fill="#c9a84c18"/>
+  <circle cx="400" cy="168" r="110" fill="none" stroke="#c9a84c" stroke-width="1"/>
+  <circle cx="400" cy="168" r="88" fill="none" stroke="#c9a84c30" stroke-width="0.5"/>
+  <circle cx="374" cy="138" r="7" fill="#c9a84c08"/>
+  <circle cx="428" cy="178" r="5" fill="#c9a84c07"/>
+  <circle cx="410" cy="118" r="5" fill="#c9a84c06"/>
+  <ellipse cx="68" cy="280" rx="34" ry="16" fill="#4a1a6a28" transform="rotate(-35,68,280)"/>
+  <ellipse cx="46" cy="262" rx="28" ry="13" fill="#4a1a6a22" transform="rotate(18,46,262)"/>
+  <ellipse cx="90" cy="296" rx="22" ry="10" fill="#6b3d8c18" transform="rotate(-10,90,296)"/>
+  <ellipse cx="510" cy="288" rx="30" ry="14" fill="#4a1a6a20" transform="rotate(25,510,288)"/>
+  <text x="300" y="55" fill="#c9a84c" font-size="13">✦</text>
+  <text x="512" y="88" fill="#c9a84c80" font-size="8">✦</text>
+  <text x="484" y="248" fill="#c9a84c60" font-size="10">✦</text>
+  <text x="338" y="276" fill="#c9a84c40" font-size="7">✦</text>
+  <text x="168" y="52" fill="#c9a84c50" font-size="8">✦</text>
+  <text x="30" y="14" fill="#c9a84c50" font-family="Arial,sans-serif" font-size="7.5" letter-spacing="2">COMPLIMENTARY SHIPPING A$200 · 每件作品皆由手工完成</text>
+  <text x="34" y="108" fill="#c9a84c" font-family="Georgia,serif" font-size="8" letter-spacing="5">ARCANA · 玄月</text>
+  <text x="30" y="168" fill="#f5f0e2" font-family="Georgia,serif" font-size="42" font-weight="900" letter-spacing="-1">ARCANA</text>
+  <text x="34" y="196" fill="#c9a84c80" font-family="Georgia,serif" font-size="10" letter-spacing="4">JEWELS FOR THE INNER ORBIT</text>
+  <polygon points="490,300 520,258 550,300" fill="#6b3d8c35"/>
+  <polygon points="18,308 38,275 58,308" fill="#4a1a6a30"/>
+</svg>

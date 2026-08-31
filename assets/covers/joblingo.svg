@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 312">
+  <rect width="560" height="312" fill="#fdf5ea"/>
+  <rect x="170" y="18" width="220" height="276" rx="14" fill="#fff" stroke="#e8d4b8" stroke-width="1.5"/>
+  <rect x="170" y="18" width="220" height="50" rx="14" fill="#b0743a"/>
+  <rect x="170" y="50" width="220" height="18" fill="#b0743a"/>
+  <text x="280" y="50" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="15" font-weight="900">JobLingo</text>
+  <text x="280" y="38" text-anchor="middle" fill="#f5e0c0" font-family="Arial,sans-serif" font-size="8" letter-spacing="1.5">CHROME EXTENSION</text>
+  <rect x="186" y="80" width="62" height="24" rx="5" fill="#b0743a"/>
+  <text x="217" y="96" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10" font-weight="900">中文</text>
+  <rect x="254" y="80" width="62" height="24" rx="5" fill="#f8ece0" stroke="#e8d4b8" stroke-width="1"/>
+  <text x="285" y="96" text-anchor="middle" fill="#b0743a" font-family="Arial,sans-serif" font-size="10" font-weight="900">English</text>
+  <rect x="322" y="80" width="60" height="24" rx="5" fill="#f8ece0" stroke="#e8d4b8" stroke-width="1"/>
+  <text x="352" y="96" text-anchor="middle" fill="#b0743a" font-family="Arial,sans-serif" font-size="10" font-weight="900">日本語</text>
+  <g fill="none" stroke="#e0cebb" stroke-width="1">
+    <rect x="186" y="116" width="196" height="20" rx="4"/>
+    <rect x="186" y="142" width="196" height="20" rx="4"/>
+    <rect x="186" y="168" width="196" height="20" rx="4"/>
+    <rect x="186" y="194" width="196" height="36" rx="4"/>
+  </g>
+  <text x="196" y="130" fill="#c8b49a" font-family="Arial" font-size="9">名前 / Name / 姓名</text>
+  <text x="196" y="156" fill="#c8b49a" font-family="Arial" font-size="9">卒業年度 / Graduation / 毕业年份</text>
+  <text x="196" y="182" fill="#c8b49a" font-family="Arial" font-size="9">志望動機 / 求职意向</text>
+  <text x="196" y="208" fill="#c8b49a" font-family="Arial" font-size="9">AI cover letter · based on JD</text>
+  <text x="196" y="220" fill="#d4b090" font-family="Arial" font-size="8">← tailored to each role</text>
+  <rect x="186" y="242" width="196" height="36" rx="8" fill="#b0743a"/>
+  <text x="284" y="265" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="900">1 Click Fill ✓</text>
+  <text x="90" y="100" fill="#b0743a30" font-family="Georgia,serif" font-size="80" font-weight="900">中</text>
+  <text x="410" y="220" fill="#b0743a20" font-family="Georgia,serif" font-size="60" font-weight="900">日</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 312">
+  <rect width="560" height="312" fill="#eef2f7"/>
+  <text x="28" y="38" fill="#1a2a3a" font-family="Georgia,serif" font-size="20" font-weight="900">Job Tracker</text>
+  <text x="28" y="56" fill="#6b8aaa" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.5">GMAIL · AUTO-STAGE DETECTION · FEISHU</text>
+  <rect x="28" y="70" width="156" height="224" rx="8" fill="#dde4ed"/>
+  <rect x="200" y="70" width="156" height="224" rx="8" fill="#dde4ed"/>
+  <rect x="372" y="70" width="160" height="224" rx="8" fill="#dde4ed"/>
+  <text x="48" y="92" fill="#5a7a9a" font-family="Arial,sans-serif" font-size="9" font-weight="900" letter-spacing="1">APPLIED</text>
+  <text x="220" y="92" fill="#5a7a9a" font-family="Arial,sans-serif" font-size="9" font-weight="900" letter-spacing="1">INTERVIEW</text>
+  <text x="392" y="92" fill="#2e8b57" font-family="Arial,sans-serif" font-size="9" font-weight="900" letter-spacing="1">OFFER</text>
+  <circle cx="160" cy="86" r="10" fill="#3f6f8f"/><text x="157" y="90" fill="#fff" font-family="Arial" font-size="9" font-weight="900">8</text>
+  <circle cx="333" cy="86" r="10" fill="#3f6f8f"/><text x="330" y="90" fill="#fff" font-family="Arial" font-size="9" font-weight="900">3</text>
+  <circle cx="504" cy="86" r="10" fill="#2e8b57"/><text x="501" y="90" fill="#fff" font-family="Arial" font-size="9" font-weight="900">1</text>
+  <rect x="38" y="102" width="136" height="34" rx="5" fill="#fff"/>
+  <rect x="44" y="111" width="28" height="10" rx="3" fill="#4f8ef710"/>
+  <text x="47" y="119" fill="#4f8ef7" font-family="Arial" font-size="7.5" font-weight="900">Gmail</text>
+  <rect x="44" y="125" width="80" height="6" rx="2" fill="#e0e8f0"/>
+  <rect x="38" y="142" width="136" height="34" rx="5" fill="#fff"/>
+  <rect x="44" y="155" width="80" height="6" rx="2" fill="#e0e8f0"/>
+  <rect x="44" y="165" width="50" height="6" rx="2" fill="#eef2f0"/>
+  <rect x="38" y="182" width="136" height="34" rx="5" fill="#fff"/>
+  <rect x="44" y="195" width="60" height="6" rx="2" fill="#e0e8f0"/>
+  <rect x="38" y="222" width="136" height="34" rx="5" fill="#fff"/>
+  <rect x="44" y="235" width="90" height="6" rx="2" fill="#e0e8f0"/>
+  <rect x="210" y="102" width="136" height="34" rx="5" fill="#fff"/>
+  <rect x="216" y="113" width="24" height="10" rx="3" fill="#ff880018"/>
+  <text x="220" y="121" fill="#e08030" font-family="Arial" font-size="7.5" font-weight="900">面试</text>
+  <rect x="216" y="127" width="70" height="6" rx="2" fill="#e0e8f0"/>
+  <rect x="210" y="142" width="136" height="34" rx="5" fill="#fff"/>
+  <rect x="216" y="155" width="70" height="6" rx="2" fill="#e0e8f0"/>
+  <rect x="216" y="165" width="40" height="6" rx="2" fill="#eef2f0"/>
+  <rect x="382" y="102" width="140" height="34" rx="5" fill="#e8f5ee"/>
+  <rect x="388" y="113" width="60" height="6" rx="2" fill="#2e8b5730"/>
+  <rect x="388" y="123" width="40" height="6" rx="2" fill="#2e8b5720"/>
+  <rect x="382" y="260" width="140" height="22" rx="5" fill="#3f6f8f"/>
+  <text x="430" y="275" text-anchor="middle" fill="#fff" font-family="Arial" font-size="9" font-weight="900">Stage changed → 飞书</text>
+</svg>
