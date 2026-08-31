@@ -6,3 +6,7 @@ __pycache__/
 backups/
 tmp/
 temp/
+
+# photo originals kept out of the build
+assets/experience/_originals/
+.DS_Store

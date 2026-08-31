@@ -1,5 +1,15 @@
 {
-  "experience": {},
+  "experience": {
+    "chemist": "assets/experience/chemist.webp",
+    "covestro": "assets/experience/covestro.webp",
+    "gps": "assets/experience/gps.webp",
+    "jinsha": "assets/experience/jinsha.webp",
+    "media": "assets/experience/media.webp",
+    "netease": "assets/experience/netease.webp",
+    "nio": "assets/experience/nio.webp",
+    "retail": "assets/experience/retail.webp",
+    "tiaogezi": "assets/experience/tiaogezi.webp"
+  },
   "content": {},
   "logos": {
     "adobe": "assets/logos/adobe.svg",
