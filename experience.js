@@ -62,7 +62,9 @@
     if (!tpl) return false;
     scroll.innerHTML = '';
     scroll.appendChild(tpl.content.cloneNode(true));
-    // Record photos live in a <template>, so they only exist to be filled now.
+    // A record only exists once cloned, so its photos and its language both
+    // have to be applied here rather than at load.
+    if (window.rikaLang) window.rikaLang.apply(scroll);
     if (window.fillPhotoSlots) window.fillPhotoSlots(scroll);
     scroll.scrollTop = 0;
     overlay.hidden = false;

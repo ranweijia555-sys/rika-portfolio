@@ -263,3 +263,23 @@ body.exp-locked{overflow:hidden}
 @media(max-width:900px){.tool-grid{gap:9px}.tool-grid .tool{width:76px;min-height:74px}}
 /* A filled phone post shows the photo full-bleed under its caption. */
 .phone-scroll .slide > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* ---- Bilingual switch --------------------------------------------------- */
+.header-right{justify-self:end;display:flex;align-items:center;gap:18px}
+.lang-switch{display:inline-flex;border:3px solid var(--ink);border-radius:2px;overflow:hidden}
+.lang-switch button{padding:7px 12px;border:0;background:transparent;color:var(--ink);cursor:pointer;
+  font:900 12px/1 Arial,sans-serif;letter-spacing:1px;transition:background .2s,color .2s}
+.lang-switch button + button{border-left:3px solid var(--ink)}
+.lang-switch button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lang-switch button:hover:not([aria-pressed="true"]){background:rgba(40,34,38,.1)}
+/* Chinese has no descenders to speak of and reads tighter; Georgia has no
+   Chinese glyphs at all, so the display faces need a CJK stack behind them. */
+.lang-zh h1,.lang-zh h2,.lang-zh h3,.lang-zh .rw-ttl,.lang-zh .big-stat b,
+.lang-zh .wd-metrics b,.lang-zh .ov-metrics b,.lang-zh .stat-row b{
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC",serif;
+  letter-spacing:0}
+.lang-zh .page-section h2,.lang-zh .section-paper h2{letter-spacing:-1px;line-height:1.06}
+.lang-zh .kicker,.lang-zh .ov-kicker,.lang-zh .tool-label,.lang-zh .exp-hint{letter-spacing:1.6px}
+.lang-zh .folder-tab b{letter-spacing:6px}
+.lang-zh .peek-blurb,.lang-zh .ov-lede,.lang-zh .ov-list li{line-height:1.75}
+@media(max-width:1050px){.header-right{gap:10px}.lang-switch button{padding:6px 9px;font-size:11px}}
