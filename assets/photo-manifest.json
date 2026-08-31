@@ -10,7 +10,12 @@
     "retail": "assets/experience/retail.webp",
     "tiaogezi": "assets/experience/tiaogezi.webp"
   },
-  "content": {},
+  "content": {
+    "post-1": "assets/content/post-1.webp",
+    "post-2": "assets/content/post-2.webp",
+    "post-3": "assets/content/post-3.webp",
+    "post-4": "assets/content/post-4.webp"
+  },
   "logos": {
     "adobe": "assets/logos/adobe.svg",
     "autodesk": "assets/logos/autodesk.svg",
