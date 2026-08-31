@@ -272,14 +272,36 @@ body.exp-locked{overflow:hidden}
 .lang-switch button + button{border-left:3px solid var(--ink)}
 .lang-switch button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .lang-switch button:hover:not([aria-pressed="true"]){background:rgba(40,34,38,.1)}
-/* Chinese has no descenders to speak of and reads tighter; Georgia has no
-   Chinese glyphs at all, so the display faces need a CJK stack behind them. */
-.lang-zh h1,.lang-zh h2,.lang-zh h3,.lang-zh .rw-ttl,.lang-zh .big-stat b,
-.lang-zh .wd-metrics b,.lang-zh .ov-metrics b,.lang-zh .stat-row b{
-  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC",serif;
-  letter-spacing:0}
-.lang-zh .page-section h2,.lang-zh .section-paper h2{letter-spacing:-1px;line-height:1.06}
-.lang-zh .kicker,.lang-zh .ov-kicker,.lang-zh .tool-label,.lang-zh .exp-hint{letter-spacing:1.6px}
-.lang-zh .folder-tab b{letter-spacing:6px}
-.lang-zh .peek-blurb,.lang-zh .ov-lede,.lang-zh .ov-list li{line-height:1.75}
+/* Chinese typography.
+   No web font is loaded on purpose: a CJK face is megabytes even subset, and
+   Google Fonts is unreachable from mainland China — where the readers this
+   version exists for actually are. A system stack costs nothing and resolves
+   to a modern sans on both platforms: PingFang on Mac, YaHei on Windows.
+   The first pass mapped English serif onto Songti, which fell through to
+   SimSun on Windows and read like a 2005 Word document. */
+:root{--cjk:"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei","Source Han Sans SC","Noto Sans SC","Hiragino Sans GB",sans-serif}
+.lang-zh body,.lang-zh .site-header nav a,.lang-zh .hello,.lang-zh p,.lang-zh li,
+.lang-zh .peek-blurb,.lang-zh .ov-lede,.lang-zh .slide-cap p{font-family:var(--cjk)}
+/* Display faces go heavy sans, not serif: the collage language wants weight,
+   and Chinese display type at 100px in a serif reads like a textbook. */
+.lang-zh h1,.lang-zh h2,.lang-zh h3,.lang-zh .rw-ttl,.lang-zh .brand,
+.lang-zh .slide-cap h3,.lang-zh .ov-sub h3{font-family:var(--cjk);font-weight:800;letter-spacing:0}
+.lang-zh .page-section h2,.lang-zh .section-paper h2{letter-spacing:-1px;line-height:1.18}
+.lang-zh #hero-title{line-height:1.24;letter-spacing:-1px}
+/* Numbers and Latin keep their own faces; only the CJK runs are restyled. */
+.lang-zh .big-stat b,.lang-zh .stat-row b,.lang-zh .wd-metrics b,
+.lang-zh .ov-metrics b,.lang-zh .lang-row b{font-family:Georgia,serif}
+.lang-zh .kicker,.lang-zh .ov-kicker,.lang-zh .tool-label,.lang-zh .exp-hint,
+.lang-zh .folder-peek strong,.lang-zh .ov-role{font-family:var(--cjk);letter-spacing:1.2px}
+.lang-zh .folder-tab b{font-family:var(--cjk);letter-spacing:5px;font-weight:800}
+.lang-zh .wd-metrics span,.lang-zh .ov-metrics span,.lang-zh .stat-row span,
+.lang-zh .big-stat span{font-family:var(--cjk);letter-spacing:.4px}
+.lang-zh .peek-blurb,.lang-zh .ov-lede,.lang-zh .ov-list li{line-height:1.85}
+.lang-zh .marquee span{font-family:var(--cjk);letter-spacing:3px}
+/* home-reference.css targets .hero #hero-title, which outranks a class-only
+   rule; the Chinese faces have to be at least as specific to win. */
+.lang-zh .hero #hero-title,.lang-zh .hero .marquee span,
+.lang-zh .site-header .brand,.lang-zh .site-header nav a,
+.lang-zh .site-header .hello{font-family:var(--cjk)}
+.lang-zh .hero #hero-title{font-weight:800;letter-spacing:-.5px;line-height:1.24}
 @media(max-width:1050px){.header-right{gap:10px}.lang-switch button{padding:6px 9px;font-size:11px}}
