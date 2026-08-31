@@ -2,11 +2,11 @@
   const portraits = new Map([
     [
       "Illustrated portrait of Rika standing among cherry blossoms",
-      "assets/rika-standing-person.png?v=20260814c",
+      "assets/rika-standing-person.webp?v=20260814c",
     ],
     [
       "Illustrated portrait of Rika making a peace sign",
-      "assets/rika-peace-transparent.png?v=20260812c",
+      "assets/rika-peace-transparent.webp?v=20260812c",
     ],
   ]);
 

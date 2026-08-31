@@ -45,3 +45,12 @@ Slots, in page order:
 Landscape suits the frame best: 16:10 for the three lead photos, 16:7 for
 the roles inside New Media and Frontline. Anything wider than about
 1600px is more than the layout can use.
+
+## After adding photos
+
+    python3 tools/scan_photos.py
+
+That rewrites assets/photo-manifest.json, which is how the page knows
+which slots have a photo. Without it the new file is simply not picked up
+— the page never guesses at filenames, because guessing meant a failed
+request for every empty slot.

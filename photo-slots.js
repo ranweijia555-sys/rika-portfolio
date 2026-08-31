@@ -1,44 +1,60 @@
-// Photo slots fill themselves by filename convention.
+// Photo slots fill themselves from assets/photo-manifest.json.
 //
-// Drop a file into the folder and reload — no markup to edit. A slot named
-// data-slot="nio" looks for assets/experience/nio.jpg, then .png, .jpeg and
-// .webp, and if none of them exist it quietly leaves its designed placeholder
-// alone rather than showing a broken image.
+// Add a photo:  drop the file into assets/experience/ or assets/content/,
+//               run  python3 tools/scan_photos.py,  reload.
 //
-// Record slots live inside <template> elements, so this also has to run each
-// time a record is cloned into the overlay; experience.js calls back in.
+// The slot name is the filename: data-slot="nio" takes nio.jpg, and the
+// drawer's cover-nio takes that same file. A slot with no photo keeps its
+// designed placeholder, so nothing ever shows a broken image.
+//
+// This reads a manifest rather than guessing at extensions. Guessing cost
+// four requests per slot and a console 404 for every miss — about seventy
+// failed requests on a page where most slots were still empty.
+//
+// Record photos live inside <template> elements and only exist once a record
+// is cloned into the overlay, so experience.js calls fillPhotoSlots again.
 (() => {
-  const EXT = ['jpg', 'png', 'jpeg', 'webp'];
+  let manifest = null;
 
-  const fill = (holder, base, alt) => {
-    if (holder.querySelector('img')) return;      // already filled
-    let i = 0;
+  const fill = (holder, src, alt) => {
+    if (!src || holder.querySelector('img')) return;
     const img = document.createElement('img');
     img.alt = alt || '';
     img.decoding = 'async';
-    img.addEventListener('error', () => {
-      i += 1;
-      if (i < EXT.length) img.src = `${base}.${EXT[i]}`;
-      else img.remove();                          // placeholder stays visible
-    });
-    img.src = `${base}.${EXT[0]}`;
+    img.src = src;
     holder.insertBefore(img, holder.firstChild);
   };
 
   const fillAll = root => {
-    // Experience: drawer covers (cover-nio) and record photos (nio)
+    if (!manifest) return;
     root.querySelectorAll('.peek-photo[data-slot],.ov-figure[data-slot]').forEach(el => {
       const slot = el.dataset.slot.replace(/^cover-/, '');
       const cap = el.querySelector('figcaption');
-      fill(el, `assets/experience/${slot}`, cap ? cap.textContent.trim() : '');
+      fill(el, manifest.experience[slot], cap ? cap.textContent.trim() : '');
     });
-    // Content: one image per post in the phone feed
     root.querySelectorAll('.slide[data-slot]').forEach(el => {
       const h = el.querySelector('.slide-cap h3');
-      fill(el, `assets/content/${el.dataset.slot}`, h ? h.textContent.trim() : '');
+      fill(el, manifest.content[el.dataset.slot], h ? h.textContent.trim() : '');
+    });
+    // A tool waiting on its logo shows as a wordmark; the file turns it back
+    // into an icon chip without anyone editing the markup.
+    root.querySelectorAll('.tool.is-word[data-logo]').forEach(el => {
+      const src = manifest.logos[el.dataset.logo];
+      if (!src) return;
+      fill(el.querySelector('.tool-ico'), src, '');
+      el.classList.remove('is-word');
     });
   };
 
   window.fillPhotoSlots = fillAll;
-  fillAll(document);
+
+  fetch('assets/photo-manifest.json')
+    .then(r => (r.ok ? r.json() : null))
+    .then(data => {
+      if (!data) return;
+      manifest = {experience: data.experience || {}, content: data.content || {},
+                  logos: data.logos || {}};
+      fillAll(document);
+    })
+    .catch(() => {});   // no manifest yet: every slot keeps its placeholder
 })();

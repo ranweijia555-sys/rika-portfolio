@@ -1,0 +1,22 @@
+{
+  "experience": {},
+  "content": {},
+  "logos": {
+    "adobe": "assets/logos/adobe.svg",
+    "autodesk": "assets/logos/autodesk.svg",
+    "canva": "assets/logos/canva.svg",
+    "claude": "assets/logos/claude.svg",
+    "figma": "assets/logos/figma.svg",
+    "googleanalytics": "assets/logos/googleanalytics.svg",
+    "googlechrome": "assets/logos/googlechrome.svg",
+    "javascript": "assets/logos/javascript.svg",
+    "meta": "assets/logos/meta.svg",
+    "nextdotjs": "assets/logos/nextdotjs.svg",
+    "prisma": "assets/logos/prisma.svg",
+    "python": "assets/logos/python.svg",
+    "reddit": "assets/logos/reddit.svg",
+    "shopify": "assets/logos/shopify.svg",
+    "turso": "assets/logos/turso.svg",
+    "vercel": "assets/logos/vercel.svg"
+  }
+}
