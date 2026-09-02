@@ -534,28 +534,6 @@
     })();
   </script>
   <script src="portrait-fix.js?v=20260814c"></script>
-  <script>
-  (function(){
-    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-    var pending=[];
-    document.querySelectorAll('.page-section').forEach(function(el){
-      el.classList.add('will-reveal');
-      pending.push(el);
-    });
-    function check(){
-      var vh=window.innerHeight;
-      pending=pending.filter(function(el){
-        if(el.getBoundingClientRect().top<vh*0.92){
-          el.classList.add('is-revealed');
-          return false;
-        }
-        return true;
-      });
-    }
-    check();
-    window.addEventListener('scroll',check,{passive:true});
-  })();
-  </script>
 
 
 </body>
