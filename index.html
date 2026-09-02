@@ -537,17 +537,23 @@
   <script>
   (function(){
     if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(!e.isIntersecting)return;
-        e.target.classList.add('is-revealed');
-        io.unobserve(e.target);
-      });
-    },{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
+    var pending=[];
     document.querySelectorAll('.page-section').forEach(function(el){
       el.classList.add('will-reveal');
-      io.observe(el);
+      pending.push(el);
     });
+    function check(){
+      var vh=window.innerHeight;
+      pending=pending.filter(function(el){
+        if(el.getBoundingClientRect().top<vh*0.92){
+          el.classList.add('is-revealed');
+          return false;
+        }
+        return true;
+      });
+    }
+    check();
+    window.addEventListener('scroll',check,{passive:true});
   })();
   </script>
 
