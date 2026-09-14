@@ -80,11 +80,20 @@ window.addEventListener('load', () => {
 });
 
 
-/* ── Language switch ─────────────────────────────────────────── */
+/* ── Language switch (delegates to i18n.js when loaded) ────────── */
 document.querySelectorAll('.lang-sw button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.lang-sw button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    // placeholder — add data-zh attributes later
+    const lang = btn.dataset.lang;
+    if (typeof applyLang === 'function') {
+      applyLang(lang);
+    } else {
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.querySelectorAll('[data-zh]').forEach(el => {
+        if (!el._enText) el._enText = el.innerHTML;
+        el.innerHTML = lang === 'zh' ? el.dataset.zh : el._enText;
+      });
+    }
   });
 });

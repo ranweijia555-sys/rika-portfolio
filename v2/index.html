@@ -18,10 +18,11 @@
   <header class="nav" id="nav">
     <a class="nav-logo" href="#">Rika Ran</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+      <a href="#work" data-zh="作品">Work</a>
+      <a href="#about" data-zh="关于">About</a>
+      <a href="#experience" data-zh="经历">Experience</a>
+      <a href="#toolkit" data-zh="工具">Toolkit</a>
+      <a href="#contact" data-zh="联系">Contact</a>
     </nav>
     <div class="nav-right">
       <div class="lang-sw" role="group" aria-label="Language">
@@ -59,132 +60,114 @@
     <!-- ── Work ──────────────────────────────────────────────── -->
     <section class="work" id="work">
       <header class="section-header reveal">
-        <span class="section-kicker">Selected Work</span>
-        <h2 class="section-title">Ideas become real<br>when I can click on them.</h2>
+        <span class="section-kicker" data-zh="作品">Selected Work</span>
+        <h2 class="section-title" data-zh="想法变成真实，<br>当我能点击它的时候。">Ideas become real<br>when I can click on them.</h2>
       </header>
 
-      <div class="work-grid reveal-stagger">
-
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="https://github.com/ranweijia555-sys/ai-finance-news-bot" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/bot.svg" alt="AI News Bot cover"></div>
-            <div class="card-body">
-              <span class="card-tag">Automation · Content Ops</span>
-              <h3 class="card-title">AI &amp; Finance News Bot</h3>
-              <p class="card-desc">A daily digest that curates, deduplicates, and delivers itself — then reports back on what resonated.</p>
-              <div class="card-footer">
-                <span class="card-num">01</span>
-                <span class="card-arrow">→</span>
-              </div>
+      <div class="rw" id="buildWheel">
+        <div class="rw-stage" id="rwStage">
+          <svg class="rw-arc" aria-hidden="true"><path id="rwArc" d=""></path></svg>
+          <div class="rw-float">
+            <div class="rw-track" id="rwTrack">
+            <button class="rw-card" type="button" data-key="bot" style="--c:#c9633f"><figure><img class="rw-cover" src="../assets/covers/bot.svg" alt=""><span class="rw-no">01</span><span class="rw-ttl" data-zh="资讯推送 Bot">News Bot</span></figure></button>
+            <button class="rw-card" type="button" data-key="astra" style="--c:#8b6cae"><figure><img class="rw-cover" src="../assets/covers/astra.svg" alt=""><span class="rw-no">02</span><span class="rw-ttl" data-zh="AstRa 灵案">AstRa</span></figure></button>
+            <button class="rw-card" type="button" data-key="tracker" style="--c:#3f6f8f"><figure><img class="rw-cover" src="../assets/covers/tracker.svg" alt=""><span class="rw-no">03</span><span class="rw-ttl" data-zh="求职看板">Job Tracker</span></figure></button>
+            <button class="rw-card" type="button" data-key="pricing" style="--c:#5c7a52"><figure><img class="rw-cover" src="../assets/covers/pricing.svg" alt=""><span class="rw-no">04</span><span class="rw-ttl" data-zh="公平定价">Fair Pricing</span></figure></button>
+            <button class="rw-card" type="button" data-key="joblingo" style="--c:#b0743a"><figure><img class="rw-cover" src="../assets/covers/joblingo.svg" alt=""><span class="rw-no">05</span><span class="rw-ttl" data-zh="JobLingo">JobLingo</span></figure></button>
+            <button class="rw-card" type="button" data-key="radar" style="--c:#6a7f8c"><figure><img class="rw-cover" src="../assets/covers/radar.svg" alt=""><span class="rw-no">06</span><span class="rw-ttl" data-zh="内容雷达">Content Radar</span></figure></button>
+            <button class="rw-card" type="button" data-key="crystal" style="--c:#a35c6a"><figure><img class="rw-cover" src="../assets/covers/crystal.svg" alt=""><span class="rw-no">07</span><span class="rw-ttl" data-zh="水晶漏斗">Crystal Funnel</span></figure></button>
+            <button class="rw-card" type="button" data-key="meetup" style="--c:#4a7a72"><figure><img class="rw-cover" src="../assets/covers/meetup.svg" alt=""><span class="rw-no">08</span><span class="rw-ttl" data-zh="约时间">Meet-Up</span></figure></button>
             </div>
-          </a>
-        </article>
+          </div>
+          <div class="rw-hub"><b data-zh="作品">Works</b><span data-zh="悬停查看">HOVER TO EXPLORE</span></div>
+          <p class="rw-cap"><i id="rwNo">01</i><span id="rwName" data-zh="资讯推送 Bot">News Bot</span></p>
+          <ul class="rw-nav" id="rwNav">
+            <li data-key="bot" data-zh="资讯推送 Bot">News Bot</li>
+            <li data-key="astra" data-zh="AstRa 灵案">AstRa</li>
+            <li data-key="tracker" data-zh="求职看板">Job Tracker</li>
+            <li data-key="pricing" data-zh="公平定价">Fair Pricing</li>
+            <li data-key="joblingo" data-zh="JobLingo">JobLingo</li>
+            <li data-key="radar" data-zh="内容雷达">Content Radar</li>
+            <li data-key="crystal" data-zh="水晶漏斗">Crystal Funnel</li>
+            <li data-key="meetup" data-zh="约时间">Meet-Up</li>
+          </ul>
+        </div>
 
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="https://web-pink-ten-h8p4acc4mb.vercel.app" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/astra.svg" alt="AstRa tarot app cover"></div>
-            <div class="card-body">
-              <span class="card-tag">AI Product · Narrative</span>
-              <h3 class="card-title">AstRa · 灵案</h3>
-              <p class="card-desc">A tarot reading that respects how people actually read — photograph your own cards, let AI interpret the spread.</p>
-              <div class="card-footer">
-                <span class="card-num">02</span>
-                <span class="card-arrow">→</span>
-              </div>
-            </div>
-          </a>
-        </article>
+        <div class="rw-detail" id="wheelDetail">
+          <article class="wd-panel" data-key="bot">
+            <figure class="wd-cover"><img src="../assets/covers/bot.svg" alt=""></figure>
+            <small data-zh="自动化 · 内容运营">AUTOMATION &middot; CONTENT OPS</small>
+            <h3 data-zh="AI 与金融资讯推送 Bot">AI &amp; Finance News Bot</h3>
+            <p data-zh="每天 09:00 自动运行，推送 AI 和金融资讯。RSS 抓取 → URL 去重 → DeepSeek 精选摘要 → 分群推送，另有每周趋势周报和数据看板。">A daily briefing that builds itself. Pulls from a curated RSS whitelist, drops duplicates by URL fingerprint, then uses DeepSeek to select, summarise and tag — pushing two different digests to an AI group and a finance group.</p>
+            <ul class="wd-metrics"><li><b>09:00</b><span data-zh="每日自动运行">runs daily</span></li><li><b>2</b><span data-zh="个推送群组">audience groups</span></li><li><b data-zh="每周">Weekly</b><span data-zh="趋势周报">trend report</span></li></ul>
+            <p class="wd-tech">Python &middot; DeepSeek &middot; Turso &middot; GitHub Actions &middot; Feishu</p>
+            <a class="wd-link" href="https://github.com/ranweijia555-sys/ai-finance-news-bot" target="_blank" rel="noreferrer" data-zh="查看仓库 &#8599;">See the repo &#8599;</a>
+          </article>
 
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="https://github.com/ranweijia555-sys/job-tracker" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/tracker.svg" alt="Job Tracker cover"></div>
-            <div class="card-body">
-              <span class="card-tag">Full-Stack · Workflow</span>
-              <h3 class="card-title">Job Tracker</h3>
-              <p class="card-desc">Turns a chaotic inbox into a kanban. Gmail API syncs application stages automatically — or you tag them yourself.</p>
-              <div class="card-footer">
-                <span class="card-num">03</span>
-                <span class="card-arrow">→</span>
-              </div>
-            </div>
-          </a>
-        </article>
+          <article class="wd-panel" data-key="astra">
+            <figure class="wd-cover"><img src="../assets/covers/astra.svg" alt=""></figure>
+            <small data-zh="AI 产品 · 叙事">AI PRODUCT &middot; NARRATIVE</small>
+            <h3 data-zh="AstRa · 灵案">AstRa &middot; &#28789;&#26696;</h3>
+            <p data-zh="已上线的塔罗解读 Web App。核心差异：拍照识牌，保留线下仪式感，只把解读放到线上。支持选牌阵、自由提问、历史记录。">A tarot reading that respects how people actually read. Photograph the cards from your own deck — AstRa reads that specific spread. The ritual stays physical; only the interpretation is digital.</p>
+            <ul class="wd-metrics"><li><b data-zh="已上线">Live</b><span data-zh="部署在 Vercel">on Vercel</span></li><li><b data-zh="拍照">Photo</b><span data-zh="拍照识牌">card recognition</span></li><li><b data-zh="牌阵">Spreads</b><span data-zh="+ 历史记录">+ history</span></li></ul>
+            <p class="wd-tech">Next.js &middot; Vision &amp; LLM &middot; Vercel</p>
+            <a class="wd-link" href="https://web-pink-ten-h8p4acc4mb.vercel.app" target="_blank" rel="noreferrer" data-zh="去体验 &#8599;">Try a reading &#8599;</a>
+          </article>
 
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="#" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/pricing.svg" alt="Fair Pricing cover"></div>
-            <div class="card-body">
-              <span class="card-tag">Data → Decision</span>
-              <h3 class="card-title">What Makes a Price Feel Unfair?</h3>
-              <p class="card-desc">107,752 NYC taxi trips, a regression model, and an optimisation that minimises passenger utility loss — not platform revenue.</p>
-              <div class="card-footer">
-                <span class="card-num">04</span>
-                <span class="card-arrow">→</span>
-              </div>
-            </div>
-          </a>
-        </article>
+          <article class="wd-panel" data-key="tracker">
+            <figure class="wd-cover"><img src="../assets/covers/tracker.svg" alt=""></figure>
+            <small data-zh="全栈 · 工作流自动化">FULL-STACK &middot; WORKFLOW</small>
+            <h3 data-zh="求职看板">Job Tracker</h3>
+            <p data-zh="把散在收件箱里的求职进度变成一个能查的看板。Google 登录后两种同步方式：自己打标签，或让它扫描收件箱自动判断阶段。">An inbox is a terrible database, so I turned mine into one. Sign in with Google, sync two ways: label a thread yourself, or let it scan and infer which stage each application reached.</p>
+            <ul class="wd-metrics"><li><b data-zh="Gmail">Gmail</b><span data-zh="邮箱同步">API sync</span></li><li><b>2</b><span data-zh="种同步方式">sync modes</span></li><li><b data-zh="自动">Auto</b><span data-zh="自动判断阶段">stage detection</span></li></ul>
+            <p class="wd-tech">Next.js 15 &middot; TypeScript &middot; Prisma &middot; Auth.js &middot; Gmail API</p>
+            <a class="wd-link" href="https://github.com/ranweijia555-sys/job-tracker" target="_blank" rel="noreferrer" data-zh="查看仓库 &#8599;">See the repo &#8599;</a>
+          </article>
 
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="#" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/joblingo.svg" alt="JobLingo cover"></div>
-            <div class="card-body">
-              <span class="card-tag">AI Product · Chrome Extension</span>
-              <h3 class="card-title">JobLingo</h3>
-              <p class="card-desc">A browser extension that translates job listings across languages — built for international job seekers who switch between markets.</p>
-              <div class="card-footer">
-                <span class="card-num">05</span>
-                <span class="card-arrow">→</span>
-              </div>
-            </div>
-          </a>
-        </article>
+          <article class="wd-panel" data-key="pricing">
+            <figure class="wd-cover"><img src="../assets/covers/pricing.svg" alt=""></figure>
+            <small data-zh="数据分析 · 商业决策">DATA &rarr; DECISION</small>
+            <h3 data-zh="网约车定价优化：以乘客体验为目标">What Makes a Price Feel Unfair?</h3>
+            <p data-zh="107,752 条纽约出租车数据，多元线性回归 + 非线性优化，目标函数设为最小化乘客效用损失，而非平台收入。">107,752 NYC taxi trips, a regression model, and an optimisation that targets passenger utility loss — not platform revenue. Ends in a usable pricing formula, not just a chart.</p>
+            <ul class="wd-metrics"><li><b>107,752</b><span data-zh="条行程数据">trips analysed</span></li><li><b>R&sup2; .754</b><span data-zh="回归模型拟合度">fare model fit</span></li><li><b>$2.23</b><span data-zh="起步 + $2.68/英里">+ $2.68/mile</span></li></ul>
+            <p class="wd-tech">Regression &middot; Nonlinear programming &middot; NYC TLC open data</p>
+          </article>
 
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="#" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/radar.svg" alt="Content Radar cover"></div>
-            <div class="card-body">
-              <span class="card-tag">Content Intelligence</span>
-              <h3 class="card-title">Content Radar</h3>
-              <p class="card-desc">Scans Douyin and Xiaohongshu to surface breakout topics, then generates a research brief — hours of desk time automated.</p>
-              <div class="card-footer">
-                <span class="card-num">06</span>
-                <span class="card-arrow">→</span>
-              </div>
-            </div>
-          </a>
-        </article>
+          <article class="wd-panel" data-key="joblingo">
+            <figure class="wd-cover"><img src="../assets/covers/joblingo.svg" alt=""></figure>
+            <small data-zh="AI 产品 · Chrome 插件">AI PRODUCT &middot; CHROME EXTENSION</small>
+            <h3 data-zh="JobLingo">JobLingo</h3>
+            <p data-zh="中/日/英三语求职助手，Chrome 插件。一键填写招聘表单，Claude API 按 JD 自动生成定制简历措辞和求职信。">A trilingual job-application assistant. One click fills an application form in Chinese, Japanese or English. Claude API tailors résumé wording and a cover letter to each job description.</p>
+            <ul class="wd-metrics"><li><b>3</b><span data-zh="支持语言">languages</span></li><li><b>Jun 2026</b><span data-zh="上线">launched</span></li><li><b>1 click</b><span data-zh="键填完表单">to fill a form</span></li></ul>
+            <p class="wd-tech">JavaScript &middot; Claude API &middot; Chrome extension</p>
+          </article>
 
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="#" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/crystal.svg" alt="ARCANA cover"></div>
-            <div class="card-body">
-              <span class="card-tag">Brand · E-commerce</span>
-              <h3 class="card-title">ARCANA · 玄月</h3>
-              <p class="card-desc">A crystal jewellery brand built from zero — identity, store, content strategy and the full conversion funnel.</p>
-              <div class="card-footer">
-                <span class="card-num">07</span>
-                <span class="card-arrow">→</span>
-              </div>
-            </div>
-          </a>
-        </article>
+          <article class="wd-panel" data-key="radar">
+            <figure class="wd-cover"><img src="../assets/covers/radar.svg" alt=""></figure>
+            <small data-zh="AI 工作流 · 内容策略">AI WORKFLOW &middot; CONTENT STRATEGY</small>
+            <h3 data-zh="内容雷达">Content Radar</h3>
+            <p data-zh="面向创作者的内容情报工具。跨抖音和小红书做竞品分析、爆款选题发现，Claude API 自动产出内容简报。">A creator's research tool. Reads across Douyin and Xiaohongshu — competitor analysis, breakout topics, content-structure extraction — then turns it into a brief automatically.</p>
+            <ul class="wd-metrics"><li><b>2</b><span data-zh="个平台">platforms tracked</span></li><li><b data-zh="小时 → 分钟">Hours &rarr; minutes</b><span data-zh="调研耗时">research time</span></li><li><b>Jun 2026</b><span data-zh="上线">launched</span></li></ul>
+            <p class="wd-tech">Python &middot; Claude API</p>
+          </article>
 
-        <article class="project-card reveal" data-tilt>
-          <a class="card-link" href="https://meet-up-ri-ka.vercel.app" target="_blank" rel="noreferrer">
-            <div class="card-cover"><img src="../assets/covers/meetup.svg" alt="Meet-Up cover"></div>
-            <div class="card-body">
-              <span class="card-tag">Product · Scheduling</span>
-              <h3 class="card-title">Meet-Up</h3>
-              <p class="card-desc">Everyone marks when they're free. The app finds where schedules overlap, detects the best slot, and shares the result as a card.</p>
-              <div class="card-footer">
-                <span class="card-num">08</span>
-                <span class="card-arrow">→</span>
-              </div>
-            </div>
-          </a>
-        </article>
+          <article class="wd-panel" data-key="crystal">
+            <figure class="wd-cover"><img src="../assets/covers/crystal.svg" alt=""></figure>
+            <small data-zh="进行中 · SEO 与转化漏斗">IN PROGRESS &middot; SEO &amp; CONVERSION</small>
+            <h3 data-zh="水晶测验漏斗">Crystal Quiz Funnel</h3>
+            <p data-zh="自建独立站，内含水晶推荐 quiz 漏斗，转化路径：内容 → 测验 → 选品 → 定制成品。同时是 SEO 练手项目，建站时就按「要被搜到」来做结构。">A standalone store built around a crystal recommendation quiz. Path: content → quiz → selection → a made-to-order piece. Also my testbed for search: the site is built to be found, not only to look good.</p>
+          </article>
 
+          <article class="wd-panel" data-key="meetup">
+            <figure class="wd-cover"><img src="../assets/covers/meetup.svg" alt=""></figure>
+            <small data-zh="排期工具 · 协作">SCHEDULING &middot; TOOL</small>
+            <h3 data-zh="约时间">Meet-Up</h3>
+            <p data-zh="找到所有人都有空的时间，不用在群里来回问。创建活动、分享链接，每人标自己有空的时段，热力图显示最优重叠区间。">Finding a time everyone is free usually means a long thread. Create an event, share a link, everyone marks their slots — a heatmap surfaces the best overlap. No account needed.</p>
+            <ul class="wd-metrics"><li><b data-zh="热力图">Heatmap</b><span data-zh="自动找最优时段">auto-overlap</span></li><li><b data-zh="免注册">No signup</b><span data-zh="打开即用">open and go</span></li><li><b data-zh="分享卡片">Share card</b><span data-zh="约好后导出">on lock-in</span></li></ul>
+            <p class="wd-tech">Next.js &middot; TypeScript</p>
+            <a class="wd-link" href="https://meet-up-ri-ka.vercel.app" target="_blank" rel="noreferrer" data-zh="去试试 &#8599;">Try it &#8599;</a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -227,53 +210,134 @@
 
     <!-- ── Experience ─────────────────────────────────────────── -->
     <section class="experience" id="experience">
-      <header class="section-header reveal" style="max-width:var(--max);margin-left:auto;margin-right:auto;margin-bottom:56px">
-        <span class="section-kicker">Experience</span>
-        <h2 class="section-title">Brand, growth,<br>community and partnerships.</h2>
+      <header class="section-header reveal" style="max-width:var(--max);margin-left:auto;margin-right:auto;margin-bottom:48px">
+        <span class="section-kicker" data-zh="经历">Experience</span>
+        <h2 class="section-title" data-zh="待过的地方，<br>做过的事。">Brand, growth,<br>community and partnerships.</h2>
       </header>
-      <div class="exp-grid reveal-stagger">
+      <p class="exp-hint" data-zh="悬停展开 · <b>点击查看完整经历</b>">Hover to open a file &middot; <b>click it for the full record</b></p>
+      <div class="drawer" id="expDrawer">
 
-        <div class="exp-card reveal">
-          <div class="exp-num">01</div>
-          <div class="exp-company">Covestro</div>
-          <div class="exp-role">Strategic Marketing Intern</div>
-          <div class="exp-year">Shanghai · 2025–26</div>
-          <p class="exp-desc">Asia-Pacific strategy team — industry research, 3–5 year sales modelling, and management presentations for new projects. Marketing built on industrial analysis rather than campaigns.</p>
-          <span class="exp-tag">Market Intelligence</span>
-        </div>
+        <article class="folder f-covestro" data-key="covestro" style="--f:#8d9470">
+          <button class="folder-face" type="button" aria-label="Open the full Covestro record">
+            <span class="folder-tab"><i>01</i><b data-zh="科思创">COVESTRO</b><u aria-hidden="true">&#8599;</u></span>
+            <span class="folder-peek">
+              <span class="peek-photo" data-slot="cover-covestro"><span class="peek-slot"><span>PHOTO</span><b>covestro.jpg</b></span></span>
+              <span class="peek-body">
+                <em data-zh="亚太战略营销 · 上海">APAC Strategic Marketing &middot; Shanghai</em>
+                <strong data-zh="2025.11 – 2026.02">Nov 2025 &ndash; Feb 2026</strong>
+                <span class="peek-blurb" data-zh="亚太战略营销实习。行业研究、销售数据建模，独立产出 5 份以上管理层汇报。">Three months inside an industrial marketing team, on the market research and the sales model behind its planning.</span>
+                <span class="peek-foot">
+                  <span class="peek-metric" data-zh="5+ 次管理层汇报">5+ management decks</span>
+                  <span class="folder-cta" data-zh="查看完整经历 &#8599;">Open full record &#8599;</span>
+                </span>
+              </span>
+            </span>
+          </button>
+        </article>
 
-        <div class="exp-card reveal">
-          <div class="exp-num">02</div>
-          <div class="exp-company">NetEase</div>
-          <div class="exp-role">Overseas KOL Marketing</div>
-          <div class="exp-year">Overseas Games · 2024–25</div>
-          <p class="exp-desc">End-to-end creator programmes for overseas game launches — sourcing, deals, briefs, scheduling and post-campaign analysis. 4–5 creator agreements closed per week, overall ROI &gt; 1.8.</p>
-          <span class="exp-tag">KOL / Influencer</span>
-        </div>
+        <article class="folder f-netease" data-key="netease" style="--f:#c8bda4">
+          <button class="folder-face" type="button" aria-label="Open the full Netease record">
+            <span class="folder-tab"><i>02</i><b data-zh="网易">NETEASE</b><u aria-hidden="true">&#8599;</u></span>
+            <span class="folder-peek">
+              <span class="peek-photo" data-slot="cover-netease"><span class="peek-slot"><span>PHOTO</span><b>netease.jpg</b></span></span>
+              <span class="peek-body">
+                <em data-zh="海外营销 · 达人合作">Overseas Marketing &middot; KOL</em>
+                <strong data-zh="2024.07 – 2025.01">Jul 2024 &ndash; Jan 2025</strong>
+                <span class="peek-blurb" data-zh="海外游戏 KOL 项目全链路：拓展、签约、brief、排期、复盘。周签约 4–5 人，整体 ROI &gt; 1.8。">Overseas creator programmes for NetEase&rsquo;s games &mdash; sourcing, deals, briefs, and reading what the videos actually did.</span>
+                <span class="peek-foot">
+                  <span class="peek-metric" data-zh="ROI &gt; 1.8">ROI &gt; 1.8</span>
+                  <span class="folder-cta" data-zh="查看完整经历 &#8599;">Open full record &#8599;</span>
+                </span>
+              </span>
+            </span>
+          </button>
+        </article>
 
-        <div class="exp-card reveal">
-          <div class="exp-num">03</div>
-          <div class="exp-company">NIO</div>
-          <div class="exp-role">Community Growth</div>
-          <div class="exp-year">Chengdu · 2022</div>
-          <p class="exp-desc">Built the public-to-owned pipeline for NIO's in-app community. 2,000+ new app users acquired in one month, daily login rate lifted from 1.2× to 2×.</p>
-          <span class="exp-tag">Growth</span>
-        </div>
+        <article class="folder f-nio" data-key="nio" style="--f:#9aa8b4">
+          <button class="folder-face" type="button" aria-label="Open the full Nio record">
+            <span class="folder-tab"><i>03</i><b data-zh="蔚来">NIO</b><u aria-hidden="true">&#8599;</u></span>
+            <span class="folder-peek">
+              <span class="peek-photo" data-slot="cover-nio"><span class="peek-slot"><span>PHOTO</span><b>nio.jpg</b></span></span>
+              <span class="peek-body">
+                <em data-zh="用户策略 · 成都">User Strategy &middot; Chengdu</em>
+                <strong data-zh="2022.05 – 07">May &ndash; Jul 2022</strong>
+                <span class="peek-blurb" data-zh="蔚来 App 社区用户增长。搭建公域→私域路径，单月引导 App 新增 2,000+。">Growth inside NIO&rsquo;s own app: moving people off public platforms into a community, then getting them to post.</span>
+                <span class="peek-foot">
+                  <span class="peek-metric" data-zh="单月 App 新增 2,000+">2,000+ app registrations</span>
+                  <span class="folder-cta" data-zh="查看完整经历 &#8599;">Open full record &#8599;</span>
+                </span>
+              </span>
+            </span>
+          </button>
+        </article>
 
+        <article class="folder f-media" data-key="media" style="--f:#b98a63">
+          <button class="folder-face" type="button" aria-label="Open the full New Media record">
+            <span class="folder-tab"><i>04</i><b data-zh="新媒体">NEW MEDIA</b><u aria-hidden="true">&#8599;</u></span>
+            <span class="folder-peek">
+              <span class="peek-photo" data-slot="cover-media"><span class="peek-slot"><span>PHOTO</span><b>media.jpg</b></span></span>
+              <span class="peek-body">
+                <em data-zh="内容、宣传与制作">Content, publicity &amp; production</em>
+                <strong data-zh="2020 – 2024">2020 &ndash; 2024</strong>
+                <span class="peek-blurb" data-zh="抖音账号运营、学生社团宣传部部长、音乐剧制作人。内容、宣传、活动统筹三条线。">Three roles that taught me how audiences behave &mdash; an agency account, a society&rsquo;s newsroom, and a musical.</span>
+                <span class="peek-foot">
+                  <span class="peek-metric" data-zh="3 段经历">3 roles</span>
+                  <span class="folder-cta" data-zh="查看完整经历 &#8599;">Open full record &#8599;</span>
+                </span>
+              </span>
+            </span>
+          </button>
+        </article>
+
+        <article class="folder f-retail" data-key="retail" style="--f:#6f6f72">
+          <button class="folder-face" type="button" aria-label="Open the full Frontline record">
+            <span class="folder-tab"><i>05</i><b data-zh="一线零售">FRONTLINE</b><u aria-hidden="true">&#8599;</u></span>
+            <span class="folder-peek">
+              <span class="peek-photo" data-slot="cover-retail"><span class="peek-slot"><span>PHOTO</span><b>retail.jpg</b></span></span>
+              <span class="peek-body">
+                <em data-zh="零售与餐饮服务">Retail &amp; hospitality</em>
+                <strong data-zh="2022 – 至今">2022 &ndash; present</strong>
+                <span class="peek-blurb" data-zh="墨尔本与加拿大的四份一线零售/餐饮工作。做 FMCG 和 BD 岗时的差异化实操经验。">Four counter jobs across Melbourne and Canada &mdash; the part that makes channel talk concrete.</span>
+                <span class="peek-foot">
+                  <span class="peek-metric" data-zh="4 段经历">4 roles</span>
+                  <span class="folder-cta" data-zh="查看完整经历 &#8599;">Open full record &#8599;</span>
+                </span>
+              </span>
+            </span>
+          </button>
+        </article>
+
+      </div>
+      <p class="exp-note" data-zh="文中数据来自各段任职期间的内部后台，均按保守口径列出。">Figures are self-reported from internal dashboards during each engagement, stated at their conservative reading.</p>
+    </section>
+
+    <!-- ── Toolkit ──────────────────────────────────────────────── -->
+    <section class="toolkit" id="toolkit">
+      <header class="section-header reveal">
+        <span class="section-kicker" data-zh="工具栈">Toolkit</span>
+        <h2 class="section-title" data-zh="我用什么工作。">What I work with.</h2>
+      </header>
+      <div class="v2-tool-card reveal">
+        <p class="v2-tool-label" data-zh="营销与设计">MARKETING &amp; DESIGN</p>
+        <div class="v2-tool-grid"><span class="tool" data-logo="figma"><i class="tool-ico" data-mono="F"><img class="logo" src="../assets/logos/figma.svg" alt=""></i><b>Figma</b></span><span class="tool" data-logo="canva"><i class="tool-ico" data-mono="C"><img class="logo" src="../assets/logos/canva.svg" alt=""></i><b>Canva</b></span><span class="tool" data-logo="adobe"><i class="tool-ico" data-mono="A"><img class="logo" src="../assets/logos/adobe.svg" alt=""></i><b>Adobe</b></span><span class="tool" data-logo="autodesk"><i class="tool-ico" data-mono="3"><img class="logo" src="../assets/logos/autodesk.svg" alt=""></i><b>3ds Max</b></span><span class="tool" data-logo="capcut"><i class="tool-ico" data-mono="C"><img class="logo" src="../assets/logos/capcut.svg" alt=""></i><b>CapCut</b></span><span class="tool" data-logo="finalcutpro"><i class="tool-ico" data-mono="F"><img class="logo" src="../assets/logos/finalcutpro.svg" alt=""></i><b>Final Cut Pro</b></span><span class="tool" data-logo="xiumi"><i class="tool-ico" data-mono="X"><img class="logo" src="../assets/logos/xiumi.svg" alt=""></i><b>Xiumi</b></span></div>
+        <p class="v2-tool-label" data-zh="数据与电商">ANALYTICS &amp; COMMERCE</p>
+        <div class="v2-tool-grid"><span class="tool" data-logo="googleanalytics"><i class="tool-ico" data-mono="G"><img class="logo" src="../assets/logos/googleanalytics.svg" alt=""></i><b>GA4</b></span><span class="tool" data-logo="shopify"><i class="tool-ico" data-mono="S"><img class="logo" src="../assets/logos/shopify.svg" alt=""></i><b>Shopify</b></span><span class="tool" data-logo="meta"><i class="tool-ico" data-mono="M"><img class="logo" src="../assets/logos/meta.svg" alt=""></i><b>Meta</b></span><span class="tool" data-logo="reddit"><i class="tool-ico" data-mono="R"><img class="logo" src="../assets/logos/reddit.svg" alt=""></i><b>Reddit</b></span><span class="tool is-word"><b>Excel</b></span><span class="tool is-word"><b>SQL</b></span></div>
+        <p class="v2-tool-label" data-zh="开发">BUILDING</p>
+        <div class="v2-tool-grid"><span class="tool" data-logo="python"><i class="tool-ico" data-mono="P"><img class="logo" src="../assets/logos/python.svg" alt=""></i><b>Python</b></span><span class="tool" data-logo="javascript"><i class="tool-ico" data-mono="J"><img class="logo" src="../assets/logos/javascript.svg" alt=""></i><b>JavaScript</b></span><span class="tool" data-logo="nextdotjs"><i class="tool-ico" data-mono="N"><img class="logo" src="../assets/logos/nextdotjs.svg" alt=""></i><b>Next.js</b></span><span class="tool" data-logo="claude"><i class="tool-ico" data-mono="C"><img class="logo" src="../assets/logos/claude.svg" alt=""></i><b>Claude API</b></span><span class="tool" data-logo="vercel"><i class="tool-ico" data-mono="V"><img class="logo" src="../assets/logos/vercel.svg" alt=""></i><b>Vercel</b></span><span class="tool" data-logo="turso"><i class="tool-ico" data-mono="T"><img class="logo" src="../assets/logos/turso.svg" alt=""></i><b>Turso</b></span><span class="tool" data-logo="prisma"><i class="tool-ico" data-mono="P"><img class="logo" src="../assets/logos/prisma.svg" alt=""></i><b>Prisma</b></span><span class="tool" data-logo="googlechrome"><i class="tool-ico" data-mono="C"><img class="logo" src="../assets/logos/googlechrome.svg" alt=""></i><b>Chrome Ext</b></span></div>
       </div>
     </section>
 
     <!-- ── Contact ────────────────────────────────────────────── -->
     <section class="contact" id="contact">
-      <span class="section-kicker reveal">Contact</span>
-      <h2 class="section-title reveal">Got something<br>in mind?</h2>
+      <span class="section-kicker reveal" data-zh="联系方式">Contact</span>
+      <h2 class="section-title reveal" data-zh="一起做点<br>有意思的东西。">Got something<br>in mind?</h2>
       <a class="contact-email magnetic reveal" href="mailto:ranweijia555@gmail.com">
         ranweijia555@gmail.com →
       </a>
       <div class="contact-links reveal">
-        <a href="https://www.linkedin.com/in/weijiaran" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a href="https://github.com/ranweijia555-sys" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a href="../" >Portfolio v1 ↗</a>
+        <a href="https://www.linkedin.com/in/weijiaran" target="_blank" rel="noreferrer" data-zh="领英 ↗">LinkedIn ↗</a>
+        <a href="https://github.com/ranweijia555-sys" target="_blank" rel="noreferrer" data-zh="GitHub ↗">GitHub ↗</a>
+        <a href="../" data-zh="V1 作品集 ↗">Portfolio v1 ↗</a>
       </div>
     </section>
 
@@ -284,6 +348,139 @@
     <span>Melbourne · open to opportunities</span>
   </footer>
 
+  <!-- Experience overlay (shared with v1 experience.js) -->
+  <div class="exp-overlay" id="expOverlay" role="dialog" aria-modal="true" aria-labelledby="expOvTitle" hidden>
+    <div class="exp-backdrop" data-close></div>
+    <div class="exp-sheet" role="document">
+      <button class="exp-close" type="button" data-close aria-label="Close record">&times;</button>
+      <div class="exp-scroll" id="expScroll"></div>
+    </div>
+  </div>
+
+  <template id="exp-covestro">
+    <p class="ov-kicker" data-zh="01 · 企业实习">01 &middot; CORPORATE</p>
+    <h2 id="ovT" data-zh="科思创">Covestro</h2>
+    <p class="ov-role" data-zh="亚太战略营销实习生 · 上海 · 2025.11 – 2026.02">APAC Strategic Marketing Intern &middot; Shanghai &middot; Nov 2025 &ndash; Feb 2026</p>
+    <p class="ov-lede" data-zh="科思创是德国材料巨头，薄膜和功能涂层最终装进别人的产品里，所以它的市场工作靠产业研究而不是 campaign。我在亚太战略营销团队三个月，负责行业研究、3–5 年销售数据建模，以及新项目的管理层汇报。">Covestro makes films and functional coatings that end up inside other companies&rsquo; products, so its marketing runs on industrial research rather than campaigns. I spent three months with the Asia-Pacific team on the analysis underneath that work.</p>
+    <ul class="ov-list">
+      <li data-zh="梳理亚太地区薄膜与功能涂层的下游应用、客户结构与竞争格局，并参与撰写支撑部门年度规划的行业研究报告。">Mapped downstream applications, customer structure and the competitive landscape for films and functional coatings across APAC, contributing to an industry research report for the department&rsquo;s annual planning.</li>
+      <li data-zh="独立完成江苏利特尔的案例研究，产出竞争优势与机会点的判断。">Ran an independent case study on Jiangsu Litter, producing a read on competitive advantage and where the openings were.</li>
+      <li data-zh="基于三到五年历史销售数据搭建分析模型，横向对比 BOPP、BOPET 与 PP 在不同区域和产品线的表现。">Built an analysis model over three to five years of historical sales data, comparing BOPP, BOPET and PP across regions and product lines to surface performance breakpoints.</li>
+      <li data-zh="支持芯片载带新项目，<b>独立产出 5 份以上管理层汇报</b>。">Supported a new chip carrier-tape project, pulling sales, marketing and external research into <b>5+ management-level decks</b> I produced on my own.</li>
+    </ul>
+    <ul class="ov-metrics"><li><b>5+</b><span data-zh="次管理层汇报">management decks</span></li><li><b>3&ndash;5 yrs</b><span data-zh="年销售数据建模">sales data modelled</span></li><li><b>B2B</b><span data-zh="工业材料">industrial materials</span></li></ul>
+    <p class="ov-tags" data-zh="市场研究 · 数据建模 · 战略分析 · B2B">Market research &middot; Data modelling &middot; Strategic analysis &middot; B2B</p>
+  </template>
+
+  <template id="exp-netease">
+    <p class="ov-kicker" data-zh="02 · 企业实习">02 &middot; CORPORATE</p>
+    <h2 id="ovT" data-zh="网易">NetEase</h2>
+    <p class="ov-role" data-zh="海外市场实习生（达人运营）· 2024.07 – 2025.01">Overseas Marketing Intern, KOL &middot; Jul 2024 &ndash; Jan 2025</p>
+    <p class="ov-lede" data-zh="网易海外游戏发行高度依赖外部创作者。我负责海外 KOL 项目的完整链路：拓展、评估、签约、写 brief、排期，并在发布后做传播数据复盘。">NetEase publishes games worldwide, and an overseas launch depends almost entirely on creators the company does not own. My job was that side of it end to end &mdash; finding the right people, agreeing terms, briefing them, scheduling the launch, and reading the results.</p>
+    <ul class="ov-list">
+      <li data-zh="在 Instagram、X 和 YouTube 上拓展电商、游戏与生活方式赛道的达人——评估匹配度、内容与报价，<b>每周签约四到五人</b>。">Sourced creators on Instagram, X and YouTube across e-commerce, gaming and lifestyle &mdash; assessing fit, content and rates, <b>signing four to five a week</b> and owning each deal through to the video going live.</li>
+      <li data-zh="负责 <b>TGS 2024</b> 与海南－东盟 TikTok 短视频大赛的媒介策略、上线协调与传播数据分析。">Owned media strategy, launch coordination and performance analysis for <b>TGS 2024</b> and the Hainan&ndash;ASEAN TikTok short-video competition.</li>
+      <li data-zh="产出爆款内容——<b>传播达百万级，整体 ROI 高于 1.8</b>。">Produced breakout pieces including <i>A Day at TGS 2024</i> and Marvel Rivals coverage &mdash; <b>million-level reach at an overall ROI above 1.8</b>.</li>
+      <li data-zh="搭建 <b>Python 批量触达工作流</b>，把单批拓展量从约 100 人提升到 <b>500 人以上</b>。">Built a <b>Python batch-outreach workflow</b> that took sourcing from around 100 to <b>500+ creators per batch</b>.</li>
+    </ul>
+    <ul class="ov-metrics"><li><b>4&ndash;5</b><span data-zh="周签约">signings per week</span></li><li><b>&gt;1.8</b><span data-zh="整体 ROI">overall ROI</span></li><li><b>100 &rarr; 500+</b><span data-zh="单批触达量">outreach per batch</span></li></ul>
+    <p class="ov-tags" data-zh="达人 BD · 海外营销 · 媒介策略 · 内容">Creator BD &middot; Overseas marketing &middot; Media strategy &middot; Content</p>
+  </template>
+
+  <template id="exp-nio">
+    <p class="ov-kicker" data-zh="03 · 企业实习">03 &middot; CORPORATE</p>
+    <h2 id="ovT" data-zh="蔚来">NIO</h2>
+    <p class="ov-role" data-zh="用户策略与社区运营 · 成都 · 2022.05 – 07">User Strategy &amp; Community Operations &middot; Chengdu &middot; May &ndash; Jul 2022</p>
+    <p class="ov-lede" data-zh="蔚来的用户社区在自家 App 内，增长不是买量，而是把人从公域平台引导到私域并留下来。我负责这条路径的搭建，以及用户进来之后的活跃度提升。">NIO&rsquo;s community lives inside its own app, which makes growth a very different problem from buying traffic. I spent the summer on that path &mdash; and on what made people post once they had arrived.</p>
+    <ul class="ov-list">
+      <li data-zh="分析公众号、视频号与微博的用户画像和流量峰值，搭建公域→私域路径，<b>单月引导 App 新增 2,000 以上</b>。">Profiled audiences and traffic peaks across the WeChat account, video channel and Weibo, then built a public-reach-to-owned-community path that drove <b>2,000+ app registrations in a single month</b>.</li>
+      <li data-zh="优化 Push、Banner 与公众号触达，引导用户发帖：<b>发帖量 +13%，评论量 +25%</b>。">Tuned push, banner and account messaging to pull people into posting: <b>posts up 13%, comments up 25%</b>.</li>
+      <li data-zh="策划 <b>20 场以上轻量化活动</b>，平均社区参与率超过 30%。">Planned <b>20+ lightweight campaigns</b> around festivals and events, averaging over 30% community participation.</li>
+      <li data-zh="分析点击与内容热度数据以调整推荐规则，<b>日均登录从 1.2 次提升到 2 次</b>。">Read click and content-heat data to adjust recommendation rules, lifting <b>average daily logins from 1.2 to 2</b>.</li>
+    </ul>
+    <ul class="ov-metrics"><li><b>2,000+</b><span data-zh="单月 App 新增">app registrations / month</span></li><li><b>+13% / +25%</b><span data-zh="发帖 / 评论">posts / comments</span></li><li><b>1.2 &rarr; 2</b><span data-zh="日均登录">daily logins</span></li></ul>
+    <p class="ov-tags" data-zh="用户运营 · 活动策划 · 社区增长 · CRM 分层">User operations &middot; Campaigns &middot; Community growth &middot; CRM segmentation</p>
+  </template>
+
+  <template id="exp-media">
+    <p class="ov-kicker" data-zh="04 · 内容与活动">04 &middot; CONTENT, PUBLICITY &amp; PRODUCTION</p>
+    <h2 id="ovT" data-zh="新媒体">New Media</h2>
+    <p class="ov-role" data-zh="三段经历 · 2020 – 2024">Three roles &middot; 2020 &ndash; 2024</p>
+    <p class="ov-lede" data-zh="三段内容与活动经历：抖音账号从 0 做到 1 万粉，学生社团宣传部部长带 20 人团队，以及一部 100+ 人团队的音乐剧制作。">Where I learned how audiences actually behave &mdash; by publishing constantly, and by putting a show in front of a real room.</p>
+
+    <section class="ov-sub">
+      <h3 data-zh="跳格子传媒 — 新媒体内容实习生">Tiaogezi Media &mdash; New Media Content Intern</h3>
+      <p class="ov-role" data-zh="2020.11 – 2021.05 · 中国">Nov 2020 &ndash; May 2021 &middot; China</p>
+      <p class="ov-lede" data-zh="短视频 MCN 的账号运营岗，主打稳定产出。账号能涨量靠的是从不断更，以及把每一张封面都当成一次 A/B 测试。">A short-video agency account, run at volume. This is where I learned that consistency beats inspiration: the account grew because something went out constantly and every cover was a test.</p>
+      <ul class="ov-list">
+        <li data-zh="运营抖音果园账号，累计 <b>1 万粉丝、4.2 万获赞</b>，已发布 <b>66 条作品</b>。">Ran the Douyin orchard account through its growth to <b>10,000 followers and 42,000 likes</b> across <b>66 published posts</b>.</li>
+        <li data-zh="以系列化的方式撰稿并拍摄，建立能让内容按期产出的内容 SOP。">Wrote and shot the videos as a running series, and built the content SOP that kept them shipping on schedule.</li>
+        <li data-zh="产出 <b>9 份竞品拆解报告</b>，覆盖抖音、快手与百家号的封面、标题与结构。">Wrote <b>9 competitor teardowns</b> across Douyin, Kuaishou and Baijiahao on covers, titles and structure.</li>
+      </ul>
+      <ul class="ov-metrics"><li><b>10,000</b><span data-zh="粉丝">followers</span></li><li><b>42,000</b><span data-zh="获赞">likes</span></li><li><b>66</b><span data-zh="已发布作品">posts published</span></li></ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3 data-zh="GPS 中国学生社团 — 宣传部部长">GPS Chinese Students&rsquo; Society &mdash; Head of Publicity</h3>
+      <p class="ov-role" data-zh="2020.08 – 2022.08 · 金斯顿">Aug 2020 &ndash; Aug 2022 &middot; Kingston</p>
+      <p class="ov-lede" data-zh="女王大学中国学生社团的宣传部，负责社团所有对外内容，并从零搭建和管理宣传团队。">The publicity arm of a Chinese students&rsquo; society &mdash; in practice, the outlet that told everyone what was happening, and the team I had to build to keep it running.</p>
+      <ul class="ov-list">
+        <li data-zh="策划「暑期热点」「开学季速递」等专题，累计发布 <b>30 篇以上推文、阅读量 18,000 以上</b>——校内媒体中表现最好的一个。">Planned themed series such as Summer Highlights and Back-to-School Briefing, publishing <b>30+ articles to 18,000+ cumulative reads</b> &mdash; the strongest of the campus outlets.</li>
+        <li data-zh="在 Instagram、Facebook、TikTok、微博与小红书上保持每周两到五篇的更新节奏。">Ran weekly output of two to five posts across Instagram, Facebook, TikTok, Weibo and Xiaohongshu.</li>
+        <li data-zh="为团队搭建能力模型并主导招新：<b>面试 100 人以上，录取 20 人以上</b>。">Built a competency model for the team and led recruiting: <b>100+ interviews, 20+ hired</b>.</li>
+      </ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3 data-zh="《金沙》音乐剧 — 制作人"><i>Jinsha</i> Musical &mdash; Production Manager</h3>
+      <p class="ov-role" data-zh="金斯顿">Kingston</p>
+      <p class="ov-lede" data-zh="学生自制的跨文化音乐剧，从剧本本地化到登台演出全程完成。作为制作人统筹 100+ 人团队，并负责全部宣发物料与售票推广。">A cross-cultural musical adapted and staged end to end by students. Marketing a show teaches you something a campaign never does: the deadline is the curtain, and an empty seat cannot be made up later.</p>
+      <ul class="ov-list">
+        <li data-zh="协调表演、设计与营销共 <b>100 人以上的团队</b>，主导从剧本本地化到现场演出的全过程。">Led the adaptation from script localisation through to live performance, coordinating a <b>100+ person team</b> across performance, design and marketing.</li>
+        <li data-zh="制作海报与电子邀请函并执行跨平台推广——<b>90 份以上物料，2,000 人以上观演</b>。">Produced posters and digital invitations and ran cross-platform marketing &mdash; <b>90+ assets, 2,000+ attendance</b>.</li>
+      </ul>
+    </section>
+    <p class="ov-tags" data-zh="内容运营 · 宣传 · 活动制作 · 跨团队协作">Content operations &middot; Publicity &middot; Event production &middot; Cross-team coordination</p>
+  </template>
+
+  <template id="exp-retail">
+    <p class="ov-kicker" data-zh="05 · 一线零售">05 &middot; RETAIL &amp; HOSPITALITY</p>
+    <h2 id="ovT" data-zh="一线零售">Frontline</h2>
+    <p class="ov-role" data-zh="四段经历 · 2022 – 至今 · 墨尔本与加拿大">Four roles &middot; 2022 &ndash; present &middot; Melbourne &amp; Canada</p>
+    <p class="ov-lede" data-zh="大多数营销应届生没有在柜台另一侧站过。这段一线经验让我在聊渠道和 BD 时讲得出具体的事：货架上什么真正动销，以及没人做问卷时顾客会怎么说。">Most marketing graduates have never stood on the other side of the counter. This is the part of my background that makes channel and BD conversations concrete rather than theoretical.</p>
+
+    <section class="ov-sub">
+      <h3 data-zh="Chemist Warehouse — 零售助理">Chemist Warehouse &mdash; Retail Assistant</h3>
+      <p class="ov-role" data-zh="2026.07 – 至今 · 墨尔本">Jul 2026 &ndash; present &middot; Melbourne</p>
+      <ul class="ov-list"><li data-zh="在高客流连锁药房做门店一线工作——端架、黄金位、POSM 与动销。">Hands-on retail floor work in a high-volume pharmacy chain &mdash; end caps, prime positions, POSM and sell-through.</li></ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3 data-zh="好邻居亚超 — 收银与理货">Good Neighbour Asian Supermarket &mdash; Cashier &amp; Stock Assistant</h3>
+      <p class="ov-role" data-zh="2024.04 – 至今 · 墨尔本 CBD">Apr 2024 &ndash; present &middot; Melbourne CBD</p>
+      <ul class="ov-list">
+        <li data-zh="中英双语服务，为英语受限的留学生顾客搭桥。">Bilingual service in English and Mandarin, bridging for international-student customers with limited English.</li>
+        <li data-zh="POS 收银、高峰时段现金与刷卡处理、库存周转、陈列与理货。">POS, peak-hour cash and card handling, stock turnover, display and shelf work.</li>
+      </ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3 data-zh="海底捞 — 前厅服务">Haidilao &mdash; Floor Staff</h3>
+      <p class="ov-role" data-zh="2025.02 – 05 · 墨尔本">Feb &ndash; May 2025 &middot; Melbourne</p>
+      <ul class="ov-list"><li data-zh="按海底捞标准为双语顾客提供前厅服务，高峰期同时照看多桌并与后厨、楼面协作。">Front-of-house service to Haidilao standards for bilingual guests, coordinating with kitchen and floor while running several tables at peak.</li></ul>
+    </section>
+
+    <section class="ov-sub">
+      <h3 data-zh="BV 亚洲超市 — 销售助理">BV Asian Market &mdash; Sales Assistant</h3>
+      <p class="ov-role" data-zh="2022.11 – 2024.01 · 加拿大">Nov 2022 &ndash; Jan 2024 &middot; Canada</p>
+      <ul class="ov-list"><li data-zh="负责食品与美妆品类销售，并处理门店线上目录的 <b>Shopify 上架与商品录入</b>。">Sold across food and beauty categories, and handled <b>Shopify listing and product upload</b> for the store&rsquo;s online catalogue.</li></ul>
+    </section>
+    <p class="ov-tags" data-zh="门店一线 · 渠道认知 · 双语服务 · 电商上架">Retail floor &middot; Channel vocabulary &middot; Bilingual service &middot; E-commerce listing</p>
+  </template>
+
+  <script src="../i18n.js?v=3"></script>
+  <script src="../build-wheel.js?v=10"></script>
+  <script src="../experience.js?v=4"></script>
   <script src="script.js"></script>
 </body>
 </html>
