@@ -482,5 +482,53 @@
   <script src="../build-wheel.js?v=10"></script>
   <script src="../experience.js?v=4"></script>
   <script src="script.js"></script>
+  <script>
+    /* Photo slots for v2 — fetches from parent directory */
+    (() => {
+      const fill = (holder, src, alt) => {
+        if (!src || holder.querySelector('img')) return;
+        const img = document.createElement('img');
+        img.alt = alt || ''; img.decoding = 'async'; img.src = src;
+        holder.insertBefore(img, holder.firstChild);
+      };
+      const fillAll = (root, manifest) => {
+        root.querySelectorAll('.peek-photo[data-slot]').forEach(el => {
+          const slot = el.dataset.slot.replace(/^cover-/, '');
+          fill(el, manifest.experience[slot], '');
+        });
+        root.querySelectorAll('.ov-figure[data-slot]').forEach(el => {
+          const src = manifest.experience[el.dataset.slot];
+          if (!src) { el.remove(); return; }
+          fill(el, src, el.querySelector('figcaption')?.textContent.trim() || '');
+        });
+        root.querySelectorAll('.tool.is-word[data-logo]').forEach(el => {
+          const src = manifest.logos?.[el.dataset.logo];
+          if (!src) return;
+          fill(el.querySelector('.tool-ico'), src, '');
+          el.classList.remove('is-word');
+        });
+      };
+      fetch('../assets/photo-manifest.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (!data) return;
+          const m = { experience: data.experience || {}, logos: data.logos || {} };
+          /* fix paths: manifest has 'assets/...' but we're one level up */
+          Object.keys(m.experience).forEach(k => {
+            m.experience[k] = '../' + m.experience[k];
+          });
+          Object.keys(m.logos).forEach(k => {
+            m.logos[k] = '../' + m.logos[k];
+          });
+          fillAll(document, m);
+          window._v2PhotoManifest = m;
+        })
+        .catch(() => {});
+      /* re-fill after experience overlay opens */
+      window.fillPhotoSlots = root => {
+        if (window._v2PhotoManifest) fillAll(root, window._v2PhotoManifest);
+      };
+    })();
+  </script>
 </body>
 </html>
